@@ -1,0 +1,33 @@
+---
+import Layout from "@layouts/Layout.astro"
+import Gallery from "@components/Gallery.svelte"
+
+
+import { getCollection } from 'astro:content';
+import { getImage } from "astro:assets";
+export async function getStaticPaths() {
+  const portfolio = await getCollection('portfolio');
+  return portfolio.map((entry, idx) => ({
+    params: { slug: entry.slug }, props: { entry },
+  }));
+}
+const { entry } = Astro.props;
+const { Content } = await entry.render();
+
+const gallery = []
+for (let section of entry.data.gallery) {
+    const images = []
+    for (let img of section.images) {
+        const optimized = await getImage({src: img.img,format:'webp'});
+        images.push({...img, img: {attributes: optimized.attributes, src: optimized.src}})
+    }
+    gallery.push({...section, images: images})
+}
+---
+
+<Layout title="placeholder">
+  <Gallery {gallery} client:load/>
+  <div class="prose">
+    <Content/>
+  </div>
+</Layout>

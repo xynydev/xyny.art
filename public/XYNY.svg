@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Created with Vectornator (http://vectornator.io/) -->
+<svg height="100%" stroke-miterlimit="10" style="fill-rule:nonzero;clip-rule:evenodd;stroke-linecap:round;stroke-linejoin:round;" version="1.1" viewBox="0 0 1024 1024" width="100%" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:vectornator="http://vectornator.io" xmlns:xlink="http://www.w3.org/1999/xlink">
+<defs/>
+<g id="Layer-1" vectornator:layerName="Layer 1" visibility="hidden">
+<g opacity="1">
+<path d="M140.135 512L0 512L185.541 251.137L0 0L140.135 0L256 166.383L365.602 0L512 0L324.502 246.969L512 512L365.602 512L256 337.628L140.135 512Z" fill="#000000" fill-rule="nonzero" opacity="1" stroke="none"/>
+</g>
+<g opacity="1">
+<path d="M1024 192.537L1024 312.824L831.566 312.824L512 512L512 370.233L735.001 250.728L512 136.299L512 0L831.566 192.537L1024 192.537Z" fill="#000000" fill-rule="nonzero" opacity="1" stroke="none"/>
+</g>
+<g opacity="1">
+<path d="M831.463 1024L711.176 1024L711.176 831.566L512 512L653.767 512L773.272 735.001L887.701 512L1024 512L831.463 831.566L831.463 1024Z" fill="#000000" fill-rule="nonzero" opacity="1" stroke="none"/>
+</g>
+<g opacity="1">
+<path d="M365.598 1024L140.128 700.32L140.128 1024L0 1024L0 512L140.128 512.005L365.598 829.427L365.598 512L512 512L512 1024L365.598 1024Z" fill="#000000" fill-rule="nonzero" opacity="1" stroke="none"/>
+</g>
+</g>
+<g id="Layer-1-copy" vectornator:layerName="Layer 1 copy">
+<g opacity="1">
+<path d="M140.135 512L0 512L185.541 251.137L0 0L140.135 0L256 166.383L365.602 0L512 0L324.502 246.969L512 512L365.602 512L256 337.628L140.135 512Z" fill="#000000" fill-rule="nonzero" opacity="1" stroke="none"/>
+</g>
+<g opacity="1">
+<path d="M1024 192.537L1024 312.824L831.566 312.824L512 512L512 370.233L735.001 250.728L512 136.299L512 0L831.566 192.537L1024 192.537Z" fill="#000000" fill-rule="nonzero" opacity="1" stroke="none"/>
+</g>
+<g opacity="1">
+<path d="M831.463 1024L711.176 1024L711.176 831.566L512 512L653.767 512L773.272 735.001L887.701 512L1024 512L831.463 831.566L831.463 1024Z" fill="#000000" fill-rule="nonzero" opacity="1" stroke="none"/>
+</g>
+<g opacity="1">
+<path d="M365.598 1024L140.128 700.32L140.128 1024L0 1024L0 512L140.128 512.005L365.598 829.427L365.598 582L512 512L512 1024L365.598 1024Z" fill="#000000" fill-rule="nonzero" opacity="1" stroke="none"/>
+</g>
+</g>
+</svg>

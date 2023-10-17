@@ -10,6 +10,14 @@
     "astro": "astro"
   },
   "dependencies": {
-    "astro": "^3.2.3"
+    "@astrojs/svelte": "^4.0.3",
+    "@unocss/astro": "^0.56.5",
+    "astro": "^3.2.3",
+    "svelte": "^4.0.0"
+  },
+  "devDependencies": {
+    "@iconify/json": "^2.2.125",
+    "@unocss/reset": "^0.56.5",
+    "unocss": "^0.56.5"
   }
 }
