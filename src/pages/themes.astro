@@ -9,15 +9,15 @@ const themes: Array<{name: string, path: string}> = [
 <script>
     const themes = JSON.parse(document.getElementById("themes")?.getAttribute("data-themes"))
     let curr = 0
-    document.getElementById(themes[curr % themes.length].name)?.focus()
+    document.getElementById(themes[0].name)?.focus()
     window.addEventListener("keydown", (e) => {
         if (e.key == 'ArrowDown') {
             curr++
-            document.getElementById(themes[curr % themes.length].name)?.focus()
+            document.getElementById(themes.at(curr % themes.length).name)?.focus()
         }
         else if (e.key == 'ArrowUp') {
             curr--
-            document.getElementById(themes[curr % themes.length].name)?.focus()
+            document.getElementById(themes.at(curr % themes.length).name)?.focus()
         }
     });
 </script>
