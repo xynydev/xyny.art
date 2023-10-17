@@ -1,7 +1,8 @@
 ---
 import Layout from "@layouts/Layout.astro";
 const themes: Array<{name: string, path: string}> = [
-    { name: "basic", path: "/" },
+    { name: "basic-light", path: "/" },
+    { name: "basic-dark", path: "/" }
 ]
 ---
 
@@ -30,6 +31,7 @@ const themes: Array<{name: string, path: string}> = [
                     <li>
                         <a
                             id={theme.name}
+                            onclick={theme.name.includes("dark") ? "sessionStorage.setItem('dark', true)" : "sessionStorage.setItem('dark', false)"}
                             class="w-full block hover:bg-[#AAA] focus:bg-[#AAA] hover:text-black focus:text-black focus:outline-none
                                 pl-2 hover:before:content-['*'] before:inline-block before:absolute before:-translate-x-2
                                 focus:before:content-['*'] focus:before:inline-block focus:before:absolute focus:before:-translate-x-2"

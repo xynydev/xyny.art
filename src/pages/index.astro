@@ -3,17 +3,17 @@ import Layout from '../layouts/Layout.astro';
 ---
 
 <Layout title="Welcome to Astro.">
-	<main>
-		<section class="grid grid-cols-[2fr_1fr]">
-			<h1><img src="/XYNY.svg" alt="XYNY"></h1>
+	<main class="dark:bg-black dark:text-white">
+		<section class="grid grid-cols-[2fr_1fr] max-w-555 mx-auto">
+			<h1><img class="max-h-screen dark:filter-invert" src="/XYNY.svg" alt="XYNY"></h1>
 			<nav class="flex flex-col items-end text-5xl gap-12 p-12">
-				<a href="#portfolio">portfolio</a>
-				<a href="/themes">themes</a>
-				<a>about</a>
-				<a>links</a>
+				<a class="hover:underline focus:underline focus:outline-none" href="#portfolio">portfolio</a>
+				<a class="hover:underline focus:underline focus:outline-none" href="/themes">themes</a>
+				<a class="hover:underline focus:underline focus:outline-none">about</a>
+				<a class="hover:underline focus:underline focus:outline-none">links</a>
 			</nav>
 		</section>
-		<section id="portfolio" class="h-screen">
+		<section id="portfolio" class="h-screen max-w-555 mx-auto">
 			
 		</section>
 	</main>

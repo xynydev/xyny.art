@@ -7,7 +7,7 @@ export default defineConfig({
         presetWebFonts({
             provider: 'fontshare',
             fonts: { // TODO
-                sans: 'General Sans',
+                sans: 'Outfit',
                 mono: 'Tabular',
             },
         }),
