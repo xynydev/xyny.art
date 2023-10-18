@@ -16,4 +16,11 @@ export const collections = {
             }))
         })
   }),
+  'about': defineCollection({
+    type: 'content',
+    schema: () =>  z.object({
+        shortbio: z.string(),
+        subtexts: z.array(z.string())
+    })
+}),
 };
