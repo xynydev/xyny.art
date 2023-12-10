@@ -1,14 +1,16 @@
 ---
+import PortfolioItem from '@components/basic/PortfolioCard.astro';
 import Layout from '../layouts/Layout.astro';
 import SubtextWriter from '@components/basic/SubtextWriter.svelte';
 
-import { getEntry } from 'astro:content';
+import { getEntry, getCollection } from 'astro:content';
 const about = await getEntry('about', 'about');
+const portfolio = await getCollection('portfolio');
 ---
 
 <Layout title="XYNY">
 	<main class="dark:bg-black bg-white dark:text-white">
-		<section class="grid sm:grid-cols-[2fr_1fr] grid-rows-2 max-w-555 mx-auto relative">
+		<section class="grid sm:grid-cols-[2fr_1fr] sm:grid-rows-1 grid-rows-2 max-w-555 max-h-min mx-auto relative">
 			<h1 class="w-full h-full"><img class="max-h-screen dark:filter-invert" src="/XYNY.svg" alt="XYNY"></h1>
 			<nav class="flex flex-col sm:items-end text-5xl gap-12 p-12">
 				<a class="hover:underline focus:underline focus:outline-none" href="#portfolio">portfolio</a>
@@ -18,8 +20,8 @@ const about = await getEntry('about', 'about');
 			</nav>
 			<SubtextWriter client:idle subtexts={about.data.subtexts}/>
 		</section>
-		<section id="portfolio" class="h-screen max-w-555 mx-auto">
-			
+		<section id="portfolio" class="max-w-555 mx-auto min-h-screen p-12 grid lg:grid-cols-2">
+			{portfolio.map(p => <PortfolioItem {p}/>)}
 		</section>
 	</main>
 </Layout>

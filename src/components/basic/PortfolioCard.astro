@@ -1,0 +1,16 @@
+---
+import type { CollectionEntry } from "astro:content";
+    interface Props {
+    p: CollectionEntry<'portfolio'>;
+}
+const { p } = Astro.props
+import { Image } from "astro:assets"
+---
+
+<a href={`/portfolio/${p.slug}`} class="flex flex-col gap-4 outline p-4 h-fit relative group">
+    <h2 class="text-2xl group-focus:underline">{p.data.title}</h2>
+    <Image src={p.data.gallery[0].images[0].img} alt={p.data.gallery[0].images[0].alt} class="max-w-full max-h-full w-fit h-fit"></Image>
+    <p>{p.data.desc}</p>
+    <div class="absolute w-full h-full outline outline-2 -translate-4 group-hover:-translate-2.5 transition"></div>
+    <div class="absolute w-full h-full outline outline-1 -translate-4 group-hover:-translate-1 transition"></div>
+</a>

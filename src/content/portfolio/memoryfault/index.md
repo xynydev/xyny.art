@@ -1,11 +1,11 @@
 ---
 title: "mem()ry^^fault"
-desc: "Exploring the noise inherent to digital images and the accumulating effects of digital filters."
+desc: "Exploring the imperfections inherent to digital images and the accumulating effects of digital filters."
 gallery:
     - sectiontitle: section1
       sectiondesc: test
       images:
-        - img: ./test1.jpg
+        - img: ./Untitled_Artwork.png
           alt: this is a test image, ignore
           caption: this is a test image, ignore
         - img: ./test1.jpg
