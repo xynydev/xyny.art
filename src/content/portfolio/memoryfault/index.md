@@ -44,6 +44,10 @@ gallery:
         - img: "./Untitled_Artwork 1.png"
           alt: "this is a test image, ignore"
           caption: "Untitled Artwork 1: ohh that sharpening..."
+
+        - img: "./Untitled_Artwork 2.png"
+          alt: "this is a test image, ignore"
+          caption: "Untitled Artwork 2: crazy-ass blend-modes"
 ---
 
 # mem()ry^^fault
