@@ -6,7 +6,7 @@
 
 <div class="max-w-4xl w-full border-2 border-black dark:border-white">
     <div class="w-full relative">
-        <select class="w-full bg-white dark:bg-black p-4 appearance-none" bind:value={currentSection} on:change={() => currentImage = 0}>
+        <select class="w-full bg-white dark:bg-black p-4 appearance-none hover:underline focus:underline" bind:value={currentSection} on:change={() => currentImage = 0}>
             {#each gallery as section, idx}
             <option value={idx}>
                 {section.sectiontitle}
@@ -21,7 +21,7 @@
     <div class="w-full border-b-2 border-black dark:border-white flex">
         <button
             on:click={() => currentImage = currentImage-1}
-            class="p-4 px-5 border-r-2 border-black dark:border-white flex items-center gap-2"
+            class="p-4 px-5 border-r-2 border-black dark:border-white flex items-center gap-2 hover:underline focus:underline"
         >
             <i class="i-material-symbols-arrow-back-rounded inline-block w-6 h-6"></i> previous image
         </button>
@@ -30,7 +30,7 @@
         </div>
         <button
             on:click={() => currentImage = currentImage+1}
-            class="p-4 px-5 border-l-2 border-black dark:border-white flex items-center gap-2"
+            class="p-4 px-5 border-l-2 border-black dark:border-white flex items-center gap-2 hover:underline focus:underline"
         >
             next image <i class="i-material-symbols-arrow-forward-rounded inline-block w-6 h-6"></i>
         </button>
@@ -38,10 +38,11 @@
     <figure class="w-fit p-4 pb-0">
         <figcaption class="text-[#191919] dark:text-[#DDD]">{gallery[currentSection].images.at(currentImage%gallery[currentSection].images.length).caption}</figcaption>
         <img
-            class="w-4xl max-w-full h-4xl max-h-full object-contain"
+            class="w-4xl max-w-full sm:h-2xl lg:h-4xl max-h-full object-contain"
             src={gallery[currentSection].images.at(currentImage%gallery[currentSection].images.length).img.src}
             {...gallery[currentSection].images.at(currentImage%gallery[currentSection].images.length).img.attributes}
             alt={gallery[currentSection].images.at(currentImage%gallery[currentSection].images.length).alt}
+            title={gallery[currentSection].images.at(currentImage%gallery[currentSection].images.length).alt}
         >
     </figure>
 </div>
