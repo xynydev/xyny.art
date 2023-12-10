@@ -14,4 +14,6 @@ subtexts:
     - "let me know if you can hear me"
 ---
 
-Hey, it's me. 
+# About XYNY
+
+Hey, it's me.

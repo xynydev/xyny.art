@@ -1,5 +1,7 @@
 ---
 import Layout from '@layouts/Layout.astro';
+import Header from '@components/basic/Header.astro';
+
 
 import { getEntry } from 'astro:content';
 const about = await getEntry('about', 'about');
@@ -7,5 +9,10 @@ const { Content } = await about.render();
 ---
 
 <Layout title="ABOUT XYNY">
-    <Content/>
+    <main class="dark:bg-black dark:text-white w-full">
+        <Header/>
+        <section class="prose max-w-4xl mx-auto text-[#191919] dark:text-[#DDD] pb-12">
+          <Content/>
+        </section>
+    </main>
 </Layout>

@@ -22,5 +22,14 @@ export const collections = {
         shortbio: z.string(),
         subtexts: z.array(z.string())
     })
-}),
+   }),
+   'links': defineCollection({
+    type: 'data',
+    schema: () =>  z.object({
+        links: z.array(z.object({
+            name: z.string(),
+            url: z.string()
+        }))
+    })
+   }),
 };
