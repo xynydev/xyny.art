@@ -1,6 +1,6 @@
 ---
 title: "mem()ry^^fault"
-desc: "Exploring the imperfections inherent to digital images and the accumulating effects of digital filters."
+desc: "Exploring the textures inherent to digital images and the accumulating effects of digital filters."
 gallery:
     - sectiontitle: section1
       sectiondesc: test

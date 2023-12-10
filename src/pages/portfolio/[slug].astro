@@ -1,7 +1,7 @@
 ---
 import Layout from "@layouts/Layout.astro"
 import Gallery from "@components/basic/Gallery.svelte"
-
+import Header from "@components/basic/Header.astro"
 
 import { getCollection } from 'astro:content';
 import { getImage } from "astro:assets";
@@ -25,9 +25,14 @@ for (let section of entry.data.gallery) {
 }
 ---
 
-<Layout title="placeholder">
-  <Gallery {gallery} client:load/>
-  <div class="prose">
-    <Content/>
-  </div>
+<Layout title={`${entry.data.title} | XYNY`}>
+  <main class="dark:bg-black dark:text-white w-full">
+    <Header/>
+    <section class="mx-auto flex flex-row justify-center p-4">
+      <Gallery {gallery} client:load/>
+    </section>
+    <div class="prose max-w-4xl mx-auto text-[#191919] dark:text-[#DDD] pb-12">
+      <Content/>
+    </div>
+  </main>
 </Layout>
