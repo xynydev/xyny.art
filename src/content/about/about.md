@@ -11,7 +11,11 @@ subtexts:
     - "not fit for consumption"
     - "the power is in your hands"
     - "downloading..."
+    - "waiting..."
+    - "uploading..."
+    - "reticulating final splines..."
     - "let me know if you can hear me"
+    - "no there isn't an infinite amount of these"
 ---
 
 # About XYNY
