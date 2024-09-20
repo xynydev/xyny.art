@@ -2,11 +2,18 @@
     export let gallery;
     let currentSection = 0;
     let currentImage = 0;
+
+    let imgObject = gallery[0].images.at(0);
+    $: imgObject = gallery.at(currentSection).images.at(currentImage)
+    $: if (currentImage >= gallery[currentSection].images.length) {
+        currentSection = (currentSection + 1) % gallery.length
+        currentImage = 0
+    }
 </script>
 
 <div class="max-w-4xl w-full border-2 border-black dark:border-white">
     <div class="w-full relative">
-        <select class="w-full bg-white dark:bg-black p-4 appearance-none hover:underline focus:underline" bind:value={currentSection} on:change={() => currentImage = 0}>
+        <select class="w-full bg-white dark:bg-black p-4 appearance-none hover:underline focus:underline cursor-pointer" bind:value={currentSection} on:change={() => currentImage = 0}>
             {#each gallery as section, idx}
             <option value={idx}>
                 {section.sectiontitle}
@@ -36,13 +43,19 @@
         </button>
     </div>
     <figure class="w-fit p-4 pb-0">
-        <figcaption class="text-[#191919] dark:text-[#DDD]">{gallery[currentSection].images.at(currentImage%gallery[currentSection].images.length).caption}</figcaption>
+        <figcaption class="text-[#191919] dark:text-[#DDD] mb-4">{imgObject.caption}</figcaption>
         <img
-            class="w-4xl max-w-full sm:h-2xl lg:h-4xl max-h-full object-contain"
-            src={gallery[currentSection].images.at(currentImage%gallery[currentSection].images.length).img.src}
-            {...gallery[currentSection].images.at(currentImage%gallery[currentSection].images.length).img.attributes}
-            alt={gallery[currentSection].images.at(currentImage%gallery[currentSection].images.length).alt}
-            title={gallery[currentSection].images.at(currentImage%gallery[currentSection].images.length).alt}
+            class="w-4xl max-w-full sm:h-2xl lg:h-4xl max-h-full object-contain mb-4 image-rendering"
+            src={imgObject.img.src}
+            {...imgObject.attributes}
+            alt={imgObject.alt}
+            title={imgObject.alt}
         >
     </figure>
 </div>
+
+<style>
+    .image-rendering {
+        image-rendering: pixelated;
+    }
+</style>

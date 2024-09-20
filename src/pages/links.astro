@@ -8,11 +8,11 @@ const links = await getEntry('links', 'links');
 ---
 
 <Layout title="XYNY LINKS">
-    <main class="dark:bg-black dark:text-white w-full">
+    <main class="dark:bg-black dark:text-white w-full min-h-screen">
         <Header/>
-        <section class="max-w-4xl mx-auto mt-8 p-4 text-xl flex flex-row flex-wrap sm:gap-4 sm:line-height-4 gap-8 line-height-6">
+        <section class="max-w-4xl mx-auto mt-8 p-4 text-xl flex flex-col flex-wrap sm:gap-4 sm:line-height-4 gap-8 line-height-6">
             {links.data.links.map(l =>
-                <a class="hover:underline focus:underline focus:outline-none" href={l.url}>{l.name}</a>
+                <a class="hover:underline focus:underline focus:outline-none" href={l.url} target="_blank">{l.name}</a>
             )}
         </section>
     </main>
