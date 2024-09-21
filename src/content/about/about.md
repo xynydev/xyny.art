@@ -29,8 +29,6 @@ i'm all the letters of `lgbt`
 <img src="/trans.svg" alt="trans flag" class="h-4 inline"> / <img src="/lesbian.svg" alt="lesbian flag" class="h-4 inline"> &
 `she/they`
 
-i'm probably too young to remember
-
 -   shortlist of my interests:
     -   programming
         -   web development
@@ -50,4 +48,4 @@ i'm probably too young to remember
 
 i'm a full time student floating above the space usually considered to be occupied by Finland,
 
-i spend by free time by chilling, maintaining [open source](https://blue-build.org/), and doing some 'freelancing' (programming, design)
+i spend my free time by chilling, maintaining [open source](https://blue-build.org/), and doing some 'freelancing' (programming, design)
