@@ -12,6 +12,7 @@ subtexts:
     - "(explicitly anticapitalist)"
     - "downloading..."
     - "waiting..."
+    - "is this net art?"
     - "uploading..."
     - "reuploading..."
     - "reticulating final splines..."
