@@ -50,4 +50,4 @@ i'm probably too young to remember
 
 i'm a full time student floating above the space usually considered to be occupied by Finland,
 
-i spend by free time by chilling, maintaining [open source](https://blue-build.org/), and some 'freelancing' (programming, design)
+i spend by free time by chilling, maintaining [open source](https://blue-build.org/), and doing some 'freelancing' (programming, design)
