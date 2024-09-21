@@ -10,9 +10,10 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/svelte": "^4.0.3",
+    "@astrojs/svelte": "^5.7.1",
     "@unocss/astro": "^0.56.5",
-    "astro": "^3.2.3",
+    "astro": "^4.15.8",
+    "jsdom": "^25.0.0",
     "sharp": "^0.33.5",
     "svelte": "^4.0.0"
   },

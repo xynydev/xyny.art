@@ -30,7 +30,7 @@
 
 <!-- todo finish what you started!! -->
 <div
-    aria-label={subtexts[idx]} role="text"
+    aria-label={subtexts[idx]} role="banner"
     class="absolute text-left text-white mix-blend-difference textanim
     text-12 lg:text-16 xl:text-24 sm:max-w-[calc(100vw-16rem)]"
 >
