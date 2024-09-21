@@ -36,6 +36,7 @@ i'm probably too young to remember
         -   web development
         -   linux tinkering
         -   generative art
+        -   FOSS
     -   art
         -   new media art
         -   net art
@@ -47,6 +48,6 @@ i'm probably too young to remember
     -   philosophy
         -   critical theory
 
-i'm a full time student floating above the space considered to be governed by Finland,
+i'm a full time student floating above the space usually considered to be occupied by Finland,
 
 i spend by free time by chilling, maintaining [open source](https://blue-build.org/), and some 'freelancing' (programming, design)
