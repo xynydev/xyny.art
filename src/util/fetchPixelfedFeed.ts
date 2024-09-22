@@ -29,7 +29,6 @@ export async function fetchPixelfedFeed() {
             .innerHTML.replace(/<a[^>]*>/g, "")
             .replaceAll("</a>", "")
             .replace("<br>\n<br>", "<br>");
-        console.log("a:", text);
         return { text, url, date, imageUrl, imageAlt };
     });
     return feed;

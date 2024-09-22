@@ -25,10 +25,10 @@ import { Image } from "astro:assets"
 			</nav>
 			<SubtextWriter client:idle subtexts={about.data.subtexts}/>
 		</section>
-		<section id="portfolio" class="max-w-555 mx-auto min-h-screen p-12 grid lg:grid-cols-2 gap-6">
+		<section id="portfolio" class="max-w-555 mx-auto min-h-screen max-sm:px-5 p-12 grid lg:grid-cols-2 gap-6">
 			{portfolio.map(p => <PortfolioItem {p}/>)}
 		</section>
-		<section class="max-w-555 mx-auto min-h-screen p-12 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+		<section class="max-w-555 mx-auto min-h-screen max-sm:px-5 p-12 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
 			<div class="outline outline-dotted min-h-40 flex flex-col gap-2">
 				<h2 class="text-5xl" >pixelfed feed</h2>
 				<a class="m-2 focus:underline hover:underline" target="_blank" href="https://metapixl.com/xyny">@xyny@metapixl.com</a>
