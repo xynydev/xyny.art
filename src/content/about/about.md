@@ -17,7 +17,10 @@ subtexts:
     - "reuploading..."
     - "reticulating final splines..."
     - "let me know if you can hear me"
-    - "no there isn't an infinite amount of these"
+    - "change the world"
+    - "my final message"
+    - "goodbye!"
+    - "no there isn't an infinite amount of these..."
 ---
 
 # ABOUT XYNY
