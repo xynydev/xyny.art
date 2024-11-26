@@ -209,7 +209,7 @@
 
 <dialog {open} class="z-200 top-6rem bg-white fixed h-75% overflow-y-scroll font-corpo shadow-xl">
     <div class="prose p-8">
-        <h2 class="mt-0">Stabbing Notice</h2>
+        <h2 class="mt-0">We Value Your Bodily Integrity</h2>
         <p>
             At XYNY Inc., your safety is our utmost priority. That’s why we want to be transparent about the ways we engage with you in the area of strategic stabbing. This notice explains how we and our 286 trusted partners may utilize stabbing mechanisms to enhance your experience, streamline interactions, and better understand how we can deliver more targeted and effective stabbing services.
         </p>
