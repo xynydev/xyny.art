@@ -63,7 +63,7 @@ import heroImage from "src/content/portfolio/memoryfault/motionatfrontdoor.png"
             <div class="flex flex-row flex-wrap gap-4">
                 {pixelfedFeed.map(p => 
                     <a href={p.url} target="_blank" class="bg-gray-100 p-6 sm:max-w-1/2 lg:max-w-1/4 min-w-8rem w-full h-fit flex flex-col gap-4 group hover:shadow-xl shadow-md transition" title={p.imageAlt}>
-                        <Image src={p.imageUrl} alt={p.imageAlt} class="max-w-full max-h-full w-fit h-fit" inferSize={true}/>
+                        <Image src={p.images[0].url} alt={p.images[0].alt ?? ""} class="max-w-full max-h-full w-fit h-fit" inferSize={true}/>
                         <p class="text-[#191919] dark:text-[#DDD] mt-2" set:html={p.text}></p>
                     </a>
                 )}
