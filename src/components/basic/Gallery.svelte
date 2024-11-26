@@ -5,7 +5,7 @@
 
     let imgObject = $derived.by(() => gallery.at(currentSection).images.at(currentImage));
 
-    $effect.pre(() => {
+    function stabilize() {
         if (currentImage >= gallery[currentSection].images.length) {
             currentSection = (currentSection + 1) % gallery.length
             currentImage = 0
@@ -13,7 +13,17 @@
             currentSection = (currentSection - 1) % gallery.length
             currentImage = gallery[currentSection].images.length - 1
         }
-    });
+    }
+
+    function increment() {
+        currentImage++
+        stabilize()
+    }
+
+    function decrement() {
+        currentImage--
+        stabilize()
+    }
 </script>
 
 <div class="max-w-4xl w-full border-2 border-black dark:border-white">
@@ -32,7 +42,7 @@
     </div>
     <div class="w-full border-b-2 border-black dark:border-white flex">
         <button
-            onclick={() => currentImage--}
+            onclick={decrement}
             class="p-4 px-5 border-r-2 border-black dark:border-white flex items-center gap-2 hover:underline focus:underline"
         >
             <i class="i-material-symbols-arrow-back-rounded inline-block w-6 h-6"></i> previous image
@@ -41,21 +51,26 @@
             ~~^^~~
         </div>
         <button
-            onclick={() => currentImage++}
+            onclick={increment}
             class="p-4 px-5 border-l-2 border-black dark:border-white flex items-center gap-2 hover:underline focus:underline"
         >
             next image <i class="i-material-symbols-arrow-forward-rounded inline-block w-6 h-6"></i>
         </button>
     </div>
-    <figure class="w-fit p-4 pb-0">
+    <figure class="w-fit p-4 pb-0 max-w-full">
         <figcaption class="text-[#191919] dark:text-[#DDD] mb-4">{imgObject.caption}</figcaption>
-        <img
-            class="w-4xl max-w-full sm:h-2xl lg:h-4xl max-h-full object-contain mb-4 image-rendering"
-            src={imgObject.img.src}
-            {...imgObject.attributes}
-            alt={imgObject.alt}
-            title={imgObject.alt}
-        >
+        <div class="w-4xl max-w-full sm:h-2xl lg:h-4xl max-h-full mb-4 relative  aspect-1">
+            {#each gallery.flatMap((section) => section.images) as image}
+                <img
+                    class={`h-full w-full object-contain image-rendering transition absolute inset-0 ${image == imgObject ? "opacity-100" : "opacity-0"}`}
+                    src={image.img.src}
+                    {...image.attributes}
+                    alt={image.alt}
+                    title={image.alt}
+                    loading="lazy"
+                >
+            {/each}
+        </div>
     </figure>
 </div>
 
