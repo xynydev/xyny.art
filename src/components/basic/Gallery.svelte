@@ -1,19 +1,24 @@
-<script>
-    export let gallery;
-    let currentSection = 0;
-    let currentImage = 0;
+<script lang="ts">
+    let { gallery } = $props();
+    let currentSection = $state(0);
+    let currentImage = $state(0);
 
-    let imgObject = gallery[0].images.at(0);
-    $: imgObject = gallery.at(currentSection).images.at(currentImage)
-    $: if (currentImage >= gallery[currentSection].images.length) {
-        currentSection = (currentSection + 1) % gallery.length
-        currentImage = 0
-    }
+    let imgObject = $derived.by(() => gallery.at(currentSection).images.at(currentImage));
+
+    $effect.pre(() => {
+        if (currentImage >= gallery[currentSection].images.length) {
+            currentSection = (currentSection + 1) % gallery.length
+            currentImage = 0
+        } else if (currentImage < 0) {
+            currentSection = (currentSection - 1) % gallery.length
+            currentImage = gallery[currentSection].images.length - 1
+        }
+    });
 </script>
 
 <div class="max-w-4xl w-full border-2 border-black dark:border-white">
     <div class="w-full relative">
-        <select class="w-full bg-white dark:bg-black p-4 appearance-none hover:underline focus:underline cursor-pointer" bind:value={currentSection} on:change={() => currentImage = 0}>
+        <select class="w-full bg-white dark:bg-black p-4 appearance-none hover:underline focus:underline cursor-pointer" bind:value={currentSection} onchange={() => currentImage = 0}>
             {#each gallery as section, idx}
             <option value={idx}>
                 {section.sectiontitle}
@@ -27,7 +32,7 @@
     </div>
     <div class="w-full border-b-2 border-black dark:border-white flex">
         <button
-            on:click={() => currentImage = currentImage-1}
+            onclick={() => currentImage--}
             class="p-4 px-5 border-r-2 border-black dark:border-white flex items-center gap-2 hover:underline focus:underline"
         >
             <i class="i-material-symbols-arrow-back-rounded inline-block w-6 h-6"></i> previous image
@@ -36,7 +41,7 @@
             ~~^^~~
         </div>
         <button
-            on:click={() => currentImage = currentImage+1}
+            onclick={() => currentImage++}
             class="p-4 px-5 border-l-2 border-black dark:border-white flex items-center gap-2 hover:underline focus:underline"
         >
             next image <i class="i-material-symbols-arrow-forward-rounded inline-block w-6 h-6"></i>

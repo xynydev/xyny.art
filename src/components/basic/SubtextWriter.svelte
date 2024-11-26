@@ -1,8 +1,8 @@
-<script>
-    export let subtexts;
-    let idx = 0
+<script lang="ts">
+    let { subtexts } = $props();
+    let idx = $state(0)
     let charIdx = 0
-    let text = ""
+    let text = $state("")
     function reset() {
         text = ""
         idx = (idx + 1) % subtexts.length
