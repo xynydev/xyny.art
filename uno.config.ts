@@ -16,6 +16,7 @@ export default defineConfig({
                 // TODO
                 sans: "Outfit",
                 mono: "Azeret Mono",
+                corpo: "Supreme",
             },
         }),
         presetTypography(),

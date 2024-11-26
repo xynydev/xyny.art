@@ -18,6 +18,8 @@
     "svelte": "^5.0.0"
   },
   "devDependencies": {
+    "@iconify-json/material-symbols": "^1.2.8",
+    "@iconify-json/mdi": "^1.2.1",
     "@iconify/json": "^2.2.125",
     "@unocss/reset": "^0.56.5",
     "unocss": "^0.56.5"
