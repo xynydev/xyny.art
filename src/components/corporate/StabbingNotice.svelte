@@ -281,6 +281,8 @@
                 {/each}
             </div>
         {/each}
+
+        <hr class="my-4">
         
         <div class="sticky bottom-0 flex flex-row gap-2">
             <button class="block bg-gray-300 p-2 px-6 mb-2 rounded shadow" onclick={() => { preferencesOpen = false; open = false; }}>
