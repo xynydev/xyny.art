@@ -28,7 +28,7 @@
 
 <div class="max-w-4xl w-full border-2 border-black dark:border-white">
     <div class="w-full relative">
-        <select class="w-full bg-white dark:bg-black p-4 appearance-none hover:underline focus:underline cursor-pointer" bind:value={currentSection} onchange={() => currentImage = 0}>
+        <select class="w-full bg-gray-200 dark:bg-black p-4 appearance-none hover:underline focus:underline cursor-pointer" bind:value={currentSection} onchange={() => currentImage = 0}>
             {#each gallery as section, idx}
             <option value={idx}>
                 {section.sectiontitle}
@@ -37,22 +37,22 @@
         </select>
         <i class="absolute i-material-symbols-arrow-drop-down-rounded w-8 h-8 right-4 top-1/2 -translate-y-1/2 pointer-events-none"></i>
     </div>
-    <div class="border-b-2 border-black dark:border-white pb-4 px-6 text-[#191919] dark:text-[#DDD]">
+    <div class="border-b-2 border-black dark:border-white pb-4 px-6 text-[#191919] dark:text-[#DDD] bg-gray-200 dark:bg-black">
         {gallery[currentSection].sectiondesc}
     </div>
-    <div class="w-full border-b-2 border-black dark:border-white flex">
+    <div class="w-full border-b-2 border-black dark:border-white flex bg-gray-100 dark:bg-black">
         <button
             onclick={decrement}
-            class="p-4 px-5 border-r-2 border-black dark:border-white flex items-center gap-2 hover:underline focus:underline"
+            class="p-4 px-5 border-r-2 border-black dark:border-white flex items-center gap-2 hover:underline focus:underline min-w-max"
         >
             <i class="i-material-symbols-arrow-back-rounded inline-block w-6 h-6"></i> previous image
         </button>
-        <div class="mx-auto p-4">
+        <div class="p-4 bg-gray-50 w-full text-center dark:bg-black">
             ~~^^~~
         </div>
         <button
             onclick={increment}
-            class="p-4 px-5 border-l-2 border-black dark:border-white flex items-center gap-2 hover:underline focus:underline"
+            class="p-4 px-5 border-l-2 border-black dark:border-white flex items-center gap-2 hover:underline focus:underline min-w-max"
         >
             next image <i class="i-material-symbols-arrow-forward-rounded inline-block w-6 h-6"></i>
         </button>
