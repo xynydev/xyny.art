@@ -1,0 +1,45 @@
+---
+import "xp.css/dist/XP.css";
+
+import Layout from "@layouts/Layout.astro";
+
+import { getEntry, getCollection } from 'astro:content';
+
+const about = await getEntry('about', 'about');
+const { Content: AboutContent } = await about.render();
+
+const portfolio = await getCollection('portfolio');
+
+const linkEntry = await getEntry('links', 'links');
+const links = linkEntry.data.links;
+
+import { fetchPixelfedFeed } from 'src/util/fetchPixelfedFeed';
+const pixelfedFeed = await fetchPixelfedFeed();
+
+import background from "src/content/portfolio/memoryfault/bliss.png";
+import aboutIcon from "./959.png";
+import themeIcon from "./757.png";
+import linksIcon from "./933.png";
+
+import WindowsXP from "@components/windows-xp/WindowsXP.svelte";
+---
+
+<Layout title="home & portfolio">
+    <main
+        class="w-screen h-screen bg-cover bg-center font-ms grid auto-cols-[4rem] auto-rows-[4rem] p-4 gap-4"
+        style={`background-image: url(${background.src})`}
+    >
+
+        <WindowsXP client:load {links} {aboutIcon} {themeIcon} {linksIcon}>
+            <Fragment slot="about">
+                <AboutContent/>
+            </Fragment>
+        </WindowsXP>
+    </main>
+</Layout>
+
+<style>
+    .font-ms {
+        font-family: "Pixelated MS Sans Serif", sans-serif;
+    }
+</style>
