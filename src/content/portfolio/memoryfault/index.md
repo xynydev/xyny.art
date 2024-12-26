@@ -11,6 +11,10 @@ gallery:
           - img: "./motionatfrontdoor.png"
             alt: "a very blue image with a digital pattern of lines in a grid sometimes going vertically, sometimes horizontally. some rainbow streaks go through the image. at the bottom there seems to be a sphynx cat (allegedly floppa bingus) silently waiting for the owner of the doorbell camera to come open up the door"
             caption: "motionatfrontdoor.png - floppa bingus is here to see you"
+          - img: "./bliss.png"
+            alt: "a low quality version of the windows XP green hill wallpaper, seemingly overlaid on top of a distorted version of itself. weird clipart edits fill the scene; there's a flying telephone insect, a star in the sky and it's ugly reflection below, a skeleton hand reaching at the image from above, a long human hand illustration rising from between the hills, a confused person next to a see-through glowing turtle-centipede, a clamshell made of two bathtubs, and a no-smoking-allowed sign with the red stripe having a tight grip on the bottom part on the hills."
+            caption: "bliss.png"
+
     - sectiontitle: "initial discovery"
       sectiondesc: "some of the first works in the series, experimenting with different techniques"
       images:

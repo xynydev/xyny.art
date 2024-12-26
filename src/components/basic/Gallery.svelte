@@ -62,7 +62,7 @@
         <div class="w-4xl max-w-full sm:h-2xl lg:h-4xl max-h-full mb-4 relative  aspect-1">
             {#each gallery.flatMap((section) => section.images) as image}
                 <img
-                    class={`h-full w-full object-contain image-rendering transition absolute inset-0 ${image == imgObject ? "opacity-100" : "opacity-0"}`}
+                    class={`h-full w-full object-contain image-rendering transition absolute inset-0 ${image == imgObject ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"}`}
                     src={image.img.src}
                     {...image.attributes}
                     alt={image.alt}
