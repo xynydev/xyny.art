@@ -20,6 +20,7 @@ import background from "src/content/portfolio/memoryfault/bliss.png";
 import aboutIcon from "./959.png";
 import themeIcon from "./757.png";
 import linksIcon from "./933.png";
+import portfolioIcon from "./800.png";
 
 import WindowsXP from "@components/windows-xp/WindowsXP.svelte";
 ---
@@ -30,7 +31,7 @@ import WindowsXP from "@components/windows-xp/WindowsXP.svelte";
         style={`background-image: url(${background.src})`}
     >
 
-        <WindowsXP client:load {links} {aboutIcon} {themeIcon} {linksIcon}>
+        <WindowsXP client:load {links} {portfolio} {aboutIcon} {themeIcon} {linksIcon} {portfolioIcon}>
             <Fragment slot="about">
                 <AboutContent/>
             </Fragment>
