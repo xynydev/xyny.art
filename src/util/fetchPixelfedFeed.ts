@@ -1,9 +1,9 @@
 import { JSDOM } from "jsdom";
 
 export async function fetchPixelfedFeed() {
-    const res = await fetch("https://metapixl.com/users/xyny.atom");
-    const feedStr = await res.text();
     try {
+        const res = await fetch("https://metapixl.com/users/xyny.atom");
+        const feedStr = await res.text();
         const xmlDoc = new JSDOM(feedStr, {
             contentType: "text/xml",
             storageQuota: 10000000,
