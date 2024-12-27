@@ -1,10 +1,10 @@
 <script lang="ts">
     type WindowType = "about" | "themes" | "links";
 
-    let windows: Array<{type: WindowType, x: number, y: number}> = $state([
-        { type: "about", x: 320, y: 120, open: true },
-        { type: "themes", x: 200, y: 64, open: false },
-        { type: "links", x: 250, y: 32, open: false },
+    let windows: Array<{type: WindowType, x: number, y: number, open: boolean, order: number}> = $state([
+        { type: "about", x: 320, y: 120, open: true, order: 0 },
+        { type: "themes", x: 200, y: 64, open: false, order: 1 },
+        { type: "links", x: 250, y: 32, open: false, order: 2 },
         // TODO add portfolio
     ])
 
@@ -16,14 +16,18 @@
     import { draggable } from '@neodrag/svelte';
 
     function openWindow(type: WindowType) {
-        const index = windows.findIndex(w => w.type == type)
-        const window = { ...windows[index] }
-        window.open = true
-        windows.splice(index, 1)
-        windows.push(window)
+        windows.filter((w) => w.type == type).forEach(w => {
+            w.open = true
+            toTop(type)
+        })
     }
-    function dragStart(windowType: WindowType) {
-        // TODO put window to top
+    function toTop(type: WindowType) {
+        windows.filter((w) => w.type != type).forEach(w => {
+            w.order += 1
+        });
+        windows.filter((w) => w.type == type).forEach(w => {
+            w.order = 0
+        })
     }
 </script>
 
@@ -55,8 +59,8 @@
     {#if window.type == "about"}
         <div
             data-open={window.open}
-            use:draggable={{ handle: '.handle', bounds: 'body', defaultPosition: {x: window.x, y: window.y}, legacyTranslate: false, onDragStart: () => {dragStart("about")} }}
-            class="window w-lg h-fit"
+            use:draggable={{ handle: '.handle', bounds: 'body', defaultPosition: {x: window.x, y: window.y}, legacyTranslate: false, onDragStart: () => {toTop("about")} }}
+            class="window w-lg h-fit z-{10-window.order}"
         >
             <div class="title-bar handle" role="toolbar" tabindex="0">
                 <div class="title-bar-text">About XYNY</div>
@@ -73,8 +77,8 @@
     {:else if window.type == "themes"}
         <div
             data-open={window.open}
-            use:draggable={{ handle: '.handle', bounds: 'body', defaultPosition: {x: window.x, y: window.y}, legacyTranslate: false }}
-            class="window w-lg h-fit"
+            use:draggable={{ handle: '.handle', bounds: 'body', defaultPosition: {x: window.x, y: window.y}, legacyTranslate: false, onDragStart: () => {toTop("themes")} }}
+            class="window w-lg h-fit z-{10-window.order}"
         >
             <div class="title-bar handle" role="toolbar" tabindex="0">
                 <div class="title-bar-text">Confirmation</div>
@@ -98,8 +102,8 @@
     {:else if window.type == "links"}
         <div
                 data-open={window.open}
-                use:draggable={{ handle: '.handle', bounds: 'body', defaultPosition: {x: window.x, y: window.y}, legacyTranslate: false }}
-                class="window w-lg h-fit"
+                use:draggable={{ handle: '.handle', bounds: 'body', defaultPosition: {x: window.x, y: window.y}, legacyTranslate: false, onDragStart: () => {toTop("links")} }}
+                class="window w-lg h-fit z-{10-window.order}"
             >
                 <div class="title-bar handle" role="toolbar" tabindex="0">
                     <div class="title-bar-text">links</div>
