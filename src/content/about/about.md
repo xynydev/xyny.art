@@ -27,10 +27,12 @@ subtexts:
 
 hi, i'm `xyny` (or `XYNY`, but never _Xyny_) (pronounced `/ksɪnɪ/` )
 
+<!--
 i'm all the letters of `lgbt`
 
 <span class="flex flex-row items-center gap-1"><img src="/trans.svg" alt="trans flag" class="h-4 inline break-after-avoid"> / <img src="/lesbian.svg" alt="lesbian flag" class="h-4 inline"> &
 `she/they`</span>
+-->
 
 -   shortlist of my interests:
     -   programming
