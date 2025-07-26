@@ -4,38 +4,37 @@ import GenartLayout from "@layouts/GenartLayout.astro";
 
 <GenartLayout title="test">
     <script>
-        import "q5";
-        let q = new Q5("instance");
-        Object.assign(globalThis, q);
+        import { runSketch } from "src/util/q5";
 
-        let g: Q5;
-        q.setup = () => {
-            createCanvas(windowWidth, windowHeight);
-            colorMode(OKLCH);
-            background(0.9, 0.5, 180);
+        runSketch((q) => {
+            q.createCanvas(q.windowWidth, q.windowHeight);
+            q.colorMode(q.OKLCH);
+            q.background(0.9, 0.5, 180);
 
-            g = createGraphics(width, height);
-            g.colorMode(OKLCH);
-            g.translate(width / 2, height / 2);
+            let g: Q5 = q.createGraphics(q.width, q.height);
+            g.colorMode(q.OKLCH);
+            g.translate(q.width / 2, q.height / 2);
             g.scale(0.5);
-        };
-        q.draw = () => {
-            g.fill(0.5, 0.3, (noise(frameCount / 1000, 0) - 0.5) * 100);
-            g.stroke(1, 0, 0);
-            g.rotate(0.01);
-            // g.translate(5, -7);
 
-            g.rect(
-                (noise(frameCount / 20) - 0.5) * 1500 + width / 2,
-                (noise(frameCount / 20, 100) - 0.5) * 1500 + height / 2,
-                30,
-                30,
-            );
+            return (q) => {
+                g.fill(0.5, 0.3, (q.noise(q.frameCount / 1000, 0) - 0.5) * 100);
+                g.stroke(1, 0, 0);
+                g.rotate(0.01);
+                // g.translate(5, -7);
 
-            image(g, -width / 2.4, -height / 2);
-            image(g, width / 2.4, -height / 2);
-            image(g, width / 2.4, height / 2);
-            image(g, -width / 2.4, height / 2);
-        };
+                g.rect(
+                    (q.noise(q.frameCount / 20) - 0.5) * 1500 + q.width / 2,
+                    (q.noise(q.frameCount / 20, 100) - 0.5) * 1500 +
+                        q.height / 2,
+                    30,
+                    30,
+                );
+
+                q.image(g, -q.width / 2.4, -q.height / 2);
+                q.image(g, q.width / 2.4, -q.height / 2);
+                q.image(g, q.width / 2.4, q.height / 2);
+                q.image(g, -q.width / 2.4, q.height / 2);
+            };
+        });
     </script>
 </GenartLayout>
