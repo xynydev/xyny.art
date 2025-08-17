@@ -2,11 +2,11 @@
 import GenartLayout from "@layouts/GenartLayout.astro";
 ---
 
-<GenartLayout title="test">
+<GenartLayout title="flower">
     <script>
         import { runP5Sketch } from "src/util/p5";
 
-        runP5Sketch((p) => {
+        runP5Sketch(async (p) => {
             p.frameRate(4);
 
             const leaf = [
