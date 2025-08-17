@@ -1,0 +1,84 @@
+---
+import GenartLayout from "@layouts/GenartLayout.astro";
+---
+
+<GenartLayout title="test">
+    <script>
+        import { runP5Sketch } from "src/util/p5";
+
+        runP5Sketch((p) => {
+            p.frameRate(4);
+
+            const leaf = [
+                [0, 0],
+                [-50, 300],
+                [50, 300],
+                [0, 0],
+            ];
+            const getLeafPoint = (t) => {
+                let x = p.bezierPoint(
+                    leaf[0][0],
+                    leaf[1][0],
+                    leaf[2][0],
+                    leaf[3][0],
+                    t,
+                );
+                let y = p.bezierPoint(
+                    leaf[0][1],
+                    leaf[1][1],
+                    leaf[2][1],
+                    leaf[3][1],
+                    t,
+                );
+                return p.createVector(x, y);
+            };
+            const windPoint = p.createVector(-450, 200);
+
+            let frames = [];
+
+            return (p) => {
+                const pg = p.createGraphics(p.width, p.height);
+
+                pg.translate(p.width / 2, p.height / 2);
+
+                const wind = p.random(0.5, 1.5);
+
+                for (let j = 0; j < 256; j++) {
+                    const randomAngle = p.random(-p.PI, p.PI);
+                    const randomScale = p.random(0.1, 1.1);
+
+                    pg.fill("black");
+                    for (let i = 0; i < 32; i++) {
+                        const pt = getLeafPoint(i / 32)
+                            .rotate(randomAngle)
+                            .mult(randomScale);
+                        const windDist = pt.dist(windPoint);
+                        if (windDist < 600) {
+                            pt.add(wind * ((600 - windDist) / 6) * 2);
+                        }
+                        const d = pt.dist(p.createVector(0, 0));
+                        pg.circle(pt.x, pt.y, (300 - d) / 250, 0);
+                    }
+                }
+
+                for (let y = 0; y < p.height / 2; y += 10) {
+                    const pt = p.createVector(0, y);
+                    console.log(pt);
+                    const windDist = pt.dist(windPoint);
+                    if (windDist < 600) {
+                        pt.add(wind * ((600 - windDist) / 6));
+                    }
+
+                    pg.fill("black");
+                    pg.circle(pt.x, pt.y, 1);
+                }
+
+                frames = [pg, ...frames];
+                if (frames.length > 3) frames.pop();
+
+                p.background("white");
+                frames.forEach((f) => p.image(f, 0, 0));
+            };
+        });
+    </script>
+</GenartLayout>
