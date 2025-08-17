@@ -4,9 +4,9 @@ import GenartLayout from "@layouts/GenartLayout.astro";
 
 <GenartLayout title="test">
     <script>
-        import { runSketch } from "src/util/q5";
+        import { runQ5Sketch } from "src/util/q5";
 
-        runSketch((q) => {
+        runQ5Sketch((q) => {
             q.createCanvas(q.windowWidth, q.windowHeight);
             q.colorMode(q.OKLCH);
             q.background(0.9, 0.5, 180);
