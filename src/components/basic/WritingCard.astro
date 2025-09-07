@@ -1,0 +1,39 @@
+---
+import type { CollectionEntry } from "astro:content";
+interface Props {
+    w: CollectionEntry<"writing">;
+    size: "big" | "compact";
+}
+const { w, size } = Astro.props;
+import { Image } from "astro:assets";
+---
+
+{
+    size === "big" && (
+        <a
+            href={"/writing/" + w.slug}
+            class="flex flex-col outline outline-2 hover:outline-4 p-5 group cursor-pointer"
+        >
+            <h3 class="underline group-hover:decoration-4 text-xl mb-4">
+                {w.data.title}
+            </h3>
+            <p>{w.data.desc}</p>
+            {w.data.image && <Image src={w.data.image} alt={w.data.title} />}
+        </a>
+    )
+}
+{
+    size === "compact" && (
+        <a
+            href={"/writing/" + w.slug}
+            class="flex flex-row gap-4 group cursor-pointer border-t-1 pt-4"
+        >
+            <span class="font-mono">
+                {w.data.date.toLocaleDateString("sv")}
+            </span>
+            <h3 class="underline group-hover:decoration-2">{w.data.title}</h3>
+            <p>{w.data.desc}</p>
+            {w.data.image && <Image src={w.data.image} alt={w.data.title} />}
+        </a>
+    )
+}

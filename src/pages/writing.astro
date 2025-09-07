@@ -1,0 +1,36 @@
+---
+import Layout from "@layouts/Layout.astro";
+import Header from "@components/basic/Header.astro";
+import WritingCard from "@components/basic/WritingCard.astro";
+
+import { getCollection } from "astro:content";
+const writings = (await getCollection("writing")).sort(
+    (a, b) => b.data.date.valueOf() - a.data.date.valueOf(),
+);
+---
+
+<Layout title="writing">
+    <main class="dark:bg-black dark:text-white w-full min-h-screen">
+        <Header />
+        <section
+            class="prose max-w-4xl mx-auto text-[#191919] dark:text-[#DDD] pb-12 px-2"
+        >
+            <h1>xyny's writings</h1>
+            <p>
+                This is the collection of articles I've written and published.
+            </p>
+            <div class="not-prose flex flex-col gap-6 p-4">
+                <div class="grid grid-cols-3 gap-6">
+                    {
+                        writings
+                            .filter((w) => w.data.pinned)
+                            .map((w) => <WritingCard {w} size="big" />)
+                    }
+                </div>
+                <div class="flex flex-col gap-4">
+                    {writings.map((w) => <WritingCard {w} size="compact" />)}
+                </div>
+            </div>
+        </section>
+    </main>
+</Layout>
