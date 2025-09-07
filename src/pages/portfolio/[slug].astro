@@ -1,38 +1,48 @@
 ---
-import Layout from "@layouts/Layout.astro"
-import Gallery from "@components/basic/Gallery.svelte"
-import Header from "@components/basic/Header.astro"
+import Layout from "@layouts/Layout.astro";
+import Gallery from "@components/basic/Gallery.svelte";
+import Header from "@components/basic/Header.astro";
 
-import { getCollection } from 'astro:content';
+import { getCollection } from "astro:content";
 import { getImage } from "astro:assets";
 export async function getStaticPaths() {
-  const portfolio = await getCollection('portfolio');
-  return portfolio.map((entry, idx) => ({
-    params: { slug: entry.slug }, props: { entry },
-  }));
+    const portfolio = await getCollection("portfolio");
+    return portfolio.map((entry, idx) => ({
+        params: { slug: entry.slug },
+        props: { entry },
+    }));
 }
 const { entry } = Astro.props;
 const { Content } = await entry.render();
 
-const gallery = []
+const gallery = [];
 for (let section of entry.data.gallery) {
-    const images = []
+    const images = [];
     for (let img of section.images) {
-        const optimized = await getImage({src: img.img,format:'webp'});
-        images.push({...img, img: {attributes: optimized.attributes, src: optimized.src}})
+        if (img.img !== undefined) {
+            const optimized = await getImage({ src: img.img, format: "webp" });
+            images.push({
+                ...img,
+                img: { attributes: optimized.attributes, src: optimized.src },
+            });
+        } else {
+            images.push({ ...img });
+        }
     }
-    gallery.push({...section, images: images})
+    gallery.push({ ...section, images: images });
 }
 ---
 
 <Layout title={`${entry.data.title} | XYNY`}>
-  <main class="dark:bg-black dark:text-white w-full">
-    <Header/>
-    <section class="mx-auto flex flex-row justify-center p-4">
-      <Gallery {gallery} client:load/>
-    </section>
-    <div class="prose max-w-4xl mx-auto text-[#191919] dark:text-[#DDD] pb-12 p-2">
-      <Content/>
-    </div>
-  </main>
+    <main class="dark:bg-black dark:text-white w-full">
+        <Header />
+        <section class="mx-auto flex flex-row justify-center p-4">
+            <Gallery {gallery} client:load />
+        </section>
+        <div
+            class="prose max-w-4xl mx-auto text-[#191919] dark:text-[#DDD] pb-12 p-2"
+        >
+            <Content />
+        </div>
+    </main>
 </Layout>
