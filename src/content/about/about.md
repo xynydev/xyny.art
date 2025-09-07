@@ -23,7 +23,7 @@ subtexts:
   - "no there isn't an infinite amount of these..."
 ---
 
-# ABOUT XYNY
+# about xyny
 
 hi, i'm `xyny` (or `XYNY`, but never _Xyny_) (pronounced `/ksɪnɪ/` )
 

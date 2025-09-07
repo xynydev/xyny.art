@@ -1,0 +1,41 @@
+---
+import Layout from "@layouts/Layout.astro";
+import Gallery from "@components/basic/Gallery.svelte";
+import Header from "@components/basic/Header.astro";
+
+import { getCollection } from "astro:content";
+export async function getStaticPaths() {
+    const writing = await getCollection("writing");
+    return writing.map((entry, idx) => ({
+        params: { slug: entry.slug },
+        props: { entry },
+    }));
+}
+
+const { entry } = Astro.props;
+const { Content } = await entry.render();
+---
+
+<style is:global>
+    .header-anchor-link {
+        display: inline;
+        font-size: 0.6em;
+        margin-left: 0.2em;
+        font-weight: normal;
+        text-decoration: none !important;
+        &:hover {
+            text-decoration: underline !important;
+        }
+    }
+</style>
+
+<Layout title={`${entry.data.title}`}>
+    <main class="dark:bg-black dark:text-white w-full">
+        <Header />
+        <div
+            class="prose max-w-4xl mx-auto text-[#191919] dark:text-[#DDD] pb-12 p-2"
+        >
+            <Content />
+        </div>
+    </main>
+</Layout>
