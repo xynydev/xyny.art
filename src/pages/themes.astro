@@ -1,51 +1,69 @@
 ---
 import Layout from "@layouts/Layout.astro";
-const themes: Array<{name: string, path: string}> = [
+const themes: Array<{ name: string; path: string }> = [
     { name: "basic-light", path: "/" },
     { name: "basic-dark", path: "/" },
     { name: "Windows XP", path: "/themes/windows-xp/" },
     { name: "corporate", path: "/themes/corporate/" },
-]
+];
 ---
 
 <script>
-    const themes = JSON.parse(document.getElementById("themes")?.getAttribute("data-themes"))
-    let curr = 0
-    document.getElementById(themes[0].name)?.focus()
+    const themes = JSON.parse(
+        document.getElementById("themes")?.getAttribute("data-themes"),
+    );
+    let curr = 0;
+    document.getElementById(themes[0].name)?.focus();
     window.addEventListener("keydown", (e) => {
-        if (e.key == 'ArrowDown') {
-            curr++
-            document.getElementById(themes.at(curr % themes.length).name)?.focus()
-        }
-        else if (e.key == 'ArrowUp') {
-            curr--
-            document.getElementById(themes.at(curr % themes.length).name)?.focus()
+        if (e.key == "ArrowDown") {
+            curr++;
+            document
+                .getElementById(themes.at(curr % themes.length).name)
+                ?.focus();
+        } else if (e.key == "ArrowUp") {
+            curr--;
+            document
+                .getElementById(themes.at(curr % themes.length).name)
+                ?.focus();
         }
     });
 </script>
 
 <Layout title="XYNY THEME SWITCHER">
     <main class="bg-black w-screen h-screen flex items-center justify-center">
-        <section class="font-mono text-white w-[1024px] h-[768px] flex flex-col p-2">
+        <section
+            class="font-mono text-white w-[1024px] h-[768px] flex flex-col p-2"
+        >
             <h1 class="self-center">XYNY THEME SWITCHER version 2.04</h1>
-            <ul class="outline h-xl m-4 py-2 my-8" role="menu" id="themes" data-themes={JSON.stringify(themes)}>
-                {themes.map(theme => 
-                    <li>
-                        <a
-                            id={theme.name}
-                            onclick={theme.name.includes("dark") ? "sessionStorage.setItem('dark', true)" : "sessionStorage.setItem('dark', false)"}
-                            class="w-full block hover:bg-[#AAA] focus:bg-[#AAA] hover:text-black focus:text-black focus:outline-none
+            <ul
+                class="outline-3 h-[36rem] m-4 py-2 my-8"
+                role="menu"
+                id="themes"
+                data-themes={JSON.stringify(themes)}
+            >
+                {
+                    themes.map((theme) => (
+                        <li>
+                            <a
+                                id={theme.name}
+                                onclick={
+                                    theme.name.includes("dark")
+                                        ? "sessionStorage.setItem('dark', true)"
+                                        : "sessionStorage.setItem('dark', false)"
+                                }
+                                class="w-full block hover:bg-[#AAA] focus:bg-[#AAA] hover:text-black focus:text-black focus:outline-none
                                 pl-2 hover:before:content-['*'] before:inline-block before:absolute before:-translate-x-2
                                 focus:before:content-['*'] focus:before:inline-block focus:before:absolute focus:before:-translate-x-2"
-                            href={theme.path}
-                        >
-                            {theme.name}
-                        </a>
-                    </li>
-                )}
+                                href={theme.path}
+                            >
+                                {theme.name}
+                            </a>
+                        </li>
+                    ))
+                }
             </ul>
             <p class="self-center mx-3">
-                Use the ↑ and ↓ keys to select which entry is highlighted.<br>
+                Use the ↑ and ↓ keys to select which entry is highlighted.<br />
                 Press enter to use the selected theme.
             </p>
         </section>

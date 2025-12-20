@@ -1,65 +1,110 @@
 ---
-import PortfolioItem from '@components/basic/PortfolioCard.astro';
-import Layout from '../layouts/Layout.astro';
-import SubtextWriter from '@components/basic/SubtextWriter.svelte';
+import PortfolioItem from "@components/basic/PortfolioCard.astro";
+import Layout from "../layouts/Layout.astro";
+import SubtextWriter from "@components/basic/SubtextWriter.svelte";
 
-import { getEntry, getCollection } from 'astro:content';
-const about = await getEntry('about', 'about');
-const portfolio = await getCollection('portfolio');
+import { getEntry, getCollection } from "astro:content";
+const about = await getEntry("about", "about");
+const portfolio = await getCollection("portfolio");
 
-import { fetchPixelfedFeed } from 'src/util/fetchPixelfedFeed';
+import { fetchPixelfedFeed } from "src/util/fetchPixelfedFeed";
 const pixelfedFeed = await fetchPixelfedFeed();
 
-import { Image } from "astro:assets"
+import { Image } from "astro:assets";
 ---
 
 <Layout title="home & portfolio">
-	<main class="dark:bg-black bg-white dark:text-white">
-		<section class="grid sm:grid-cols-[2fr_1fr] sm:grid-rows-1 grid-rows-2 max-w-555 max-h-min mx-auto relative">
-			<h1 class="w-full h-full"><img class="max-h-screen dark:filter-invert" src="/XYNY.svg" alt="XYNY"></h1>
-			<nav class="flex flex-col sm:items-end text-5xl gap-12 p-12">
-				<a class="hover:underline focus:underline focus:outline-none" href="#portfolio">portfolio</a>
-				<a class="hover:underline focus:underline focus:outline-none" href="/themes">themes</a>
-				<a class="hover:underline focus:underline focus:outline-none" href="/about">about</a>
-				<a class="hover:underline focus:underline focus:outline-none" href="/links">links</a>
-			</nav>
-			<SubtextWriter client:idle subtexts={about.data.subtexts}/>
-		</section>
-		<section id="portfolio" class="max-w-555 mx-auto min-h-screen max-sm:px-5 p-12">
-			<div class="grid lg:grid-cols-2 gap-6">
-				{portfolio.map(p => <PortfolioItem {p}/>)}
-			</div>
-		</section>
-		<section class="max-w-555 mx-auto min-h-screen max-sm:px-5 p-12 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-			<div class="outline outline-dotted min-h-40 flex flex-col gap-2 p-4">
-				<h2 class="text-5xl">pixelfed feed</h2>
-				<a class="m-2 focus:underline hover:underline" target="_blank" href="https://metapixl.com/xyny">@xyny@metapixl.com</a>
-			</div>
-			{pixelfedFeed.map(p => 
-				<a href={p.url} target="_blank" class="flex flex-col outline p-4 relative group z-10" title={p.images[0].alt}>
-					<div class="max-w-full max-h-full w-fit h-fit relative" style={`margin-bottom: ${(p.images.length-1)*100+32}px`}>
-						{p.images.slice(1).map((i) => 
-							<Image
-								src={i.url} alt={i.alt ?? ""}
-								class="mw-full h-full absolute shadow-lg"
-								style={`z-index: ${p.images.length-p.images.indexOf(i)}; transform: translateY(${p.images.indexOf(i)*100}px)`}
-								inferSize={true}
-							/>
-						)}
-
-						<Image
-							src={p.images[0].url}
-							alt={p.images[0].alt ?? ""}
-							class="w-full h-full z-100 relative shadow-lg"
-							inferSize={true}
-						/>
-					</div>
-					<p class="text-[#191919] dark:text-[#DDD] mt-auto" set:html={p.text}></p>
-					<div class="absolute inset-0 bg-white/80 -z-1  dark:bg-black"></div>
-					<div class="absolute w-full h-full outline outline-2 -translate-4 group-hover:-translate-2.5 transition pointer-events-none bg-gray-400/50 dark:bg-gray-600/50 -z-2"></div>
-					<div class="absolute w-full h-full outline outline-1 -translate-4 group-hover:-translate-1 transition pointer-events-none dark:bg-gray-600/75 -z-3"></div>
-				</a>
-			)}
-		</section>
-	</main>
+    <main class="dark:bg-black bg-white dark:text-white">
+        <section
+            class="grid sm:grid-cols-[2fr_1fr] sm:grid-rows-1 grid-rows-2 max-w-555 max-h-min mx-auto relative"
+        >
+            <h1 class="w-full h-full">
+                <img
+                    class="max-h-screen dark:invert"
+                    src="/XYNY.svg"
+                    alt="XYNY"
+                />
+            </h1>
+            <nav class="flex flex-col sm:items-end text-5xl gap-12 p-12">
+                <a
+                    class="hover:underline focus:underline focus:outline-none"
+                    href="#portfolio">portfolio</a
+                >
+                <a
+                    class="hover:underline focus:underline focus:outline-none"
+                    href="/themes">themes</a
+                >
+                <a
+                    class="hover:underline focus:underline focus:outline-none"
+                    href="/about">about</a
+                >
+                <a
+                    class="hover:underline focus:underline focus:outline-none"
+                    href="/links">links</a
+                >
+            </nav>
+            <SubtextWriter client:idle subtexts={about.data.subtexts} />
+        </section>
+        <section
+            id="portfolio"
+            class="max-w-555 mx-auto min-h-screen max-sm:px-5 p-12"
+        >
+            <div class="grid lg:grid-cols-2 gap-6">
+                {portfolio.map((p) => <PortfolioItem {p} />)}
+            </div>
+        </section>
+        <section
+            class="max-w-555 mx-auto min-h-screen max-sm:px-5 p-12 grid sm:grid-cols-2 lg:grid-cols-3 gap-6"
+        >
+            <div
+                class="outline-dotted outline-3 min-h-40 flex flex-col gap-2 p-4"
+            >
+                <h2 class="text-5xl">pixelfed feed</h2>
+                <a
+                    class="m-2 focus:underline hover:underline"
+                    target="_blank"
+                    href="https://metapixl.com/xyny">@xyny@metapixl.com</a
+                >
+            </div>
+            {
+                pixelfedFeed.map((p) => (
+                    <a
+                        href={p.url}
+                        target="_blank"
+                        class="flex flex-col outline-3 p-4 relative group z-10"
+                        title={p.images[0].alt}
+                    >
+                        <div
+                            class="max-w-full max-h-full w-fit h-fit relative"
+                            style={`margin-bottom: ${(p.images.length - 1) * 100 + 32}px`}
+                        >
+                            {p.images.slice(1).map((i) => (
+                                <Image
+                                    src={i.url}
+                                    alt={i.alt ?? ""}
+                                    class="mw-full h-full absolute shadow-lg"
+                                    style={`z-index: ${p.images.length - p.images.indexOf(i)}; transform: translateY(${p.images.indexOf(i) * 100}px)`}
+                                    inferSize={true}
+                                />
+                            ))}
+                            outline-blue-400
+                            <Image
+                                src={p.images[0].url}
+                                alt={p.images[0].alt ?? ""}
+                                class="w-full h-full z-100 relative shadow-lg"
+                                inferSize={true}
+                            />
+                        </div>
+                        <p
+                            class="text-[#191919] dark:text-[#DDD] mt-auto"
+                            set:html={p.text}
+                        />
+                        <div class="absolute inset-0 bg-white/80 -z-1  dark:bg-black" />
+                        <div class="absolute w-full h-full outline outline-2 -translate-4 group-hover:-translate-2.5 transition pointer-events-none bg-gray-400/50 dark:bg-gray-600/50 -z-2" />
+                        <div class="absolute w-full h-full outline outline-1 -translate-4 group-hover:-translate-1 transition pointer-events-none dark:bg-gray-600/75 -z-3" />
+                    </a>
+                ))
+            }
+        </section>
+    </main>
 </Layout>

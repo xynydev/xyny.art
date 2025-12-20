@@ -1,0 +1,10 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+@theme {
+    --font-sans: "Outfit Variable", sans-serif;
+    --font-mono: "Azeret Mono Variable", monospace;
+    --font-corpo: "Roboto Variable", sans-serif;
+}
+
+@custom-variant dark (&:where(.dark, .dark *));

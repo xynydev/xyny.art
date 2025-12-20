@@ -1,24 +1,24 @@
 <script lang="ts">
     let { subtexts } = $props();
-    let idx = $state(0)
-    let charIdx = 0
-    let text = $state("")
+    let idx = $state(0);
+    let charIdx = 0;
+    let text = $state("");
     function reset() {
-        text = ""
-        idx = (idx + 1) % subtexts.length
-        charIdx = 0
-        type()
+        text = "";
+        idx = (idx + 1) % subtexts.length;
+        charIdx = 0;
+        type();
     }
     function type() {
         if (text === subtexts[idx]) {
-            setTimeout(reset, 5000)
+            setTimeout(reset, 5000);
         } else {
-            text += subtexts[idx][charIdx]
-            charIdx++
-            setTimeout(type, 50)
+            text += subtexts[idx][charIdx];
+            charIdx++;
+            setTimeout(type, 50);
         }
     }
-    type()
+    type();
 
     // classes for some different kinda positioning,
     // but discarded
@@ -30,9 +30,10 @@
 
 <!-- todo finish what you started!! -->
 <div
-    aria-label={subtexts[idx]} role="banner"
+    aria-label={subtexts[idx]}
+    role="banner"
     class="absolute text-left text-white mix-blend-difference textanim
-    text-12 lg:text-16 xl:text-24 sm:max-w-[calc(100vw-16rem)]"
+    text-5xl lg:text-6xl xl:text-8xl sm:max-w-[calc(100vw-16rem)]"
 >
     <span aria-hidden="true">{text}</span>
 </div>

@@ -1,6 +1,11 @@
 ---
+import "@fontsource-variable/outfit";
+import "@fontsource-variable/azeret-mono";
+import "@fontsource-variable/roboto";
+import "../styles/global.css";
+
 interface Props {
-	title: string;
+    title: string;
 }
 
 const { title } = Astro.props;
@@ -8,46 +13,58 @@ const { title } = Astro.props;
 
 <!doctype html>
 <html lang="en" class="scroll-smooth">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="description" content="xyny's website and portfolio | new media art & programming" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/XYNY.svg" />
-		<meta name="generator" content={Astro.generator} />
+    <head>
+        <meta charset="UTF-8" />
+        <meta
+            name="description"
+            content="xyny's website and portfolio | new media art & programming"
+        />
+        <meta name="viewport" content="width=device-width" />
+        <link rel="icon" type="image/svg+xml" href="/XYNY.svg" />
+        <meta name="generator" content={Astro.generator} />
 
-		<title>{title} | xyny.art</title>
-		<meta name="description" content="xyny's website and portfolio | new media art & programming">
+        <title>{title} | xyny.art</title>
+        <meta
+            name="description"
+            content="xyny's website and portfolio | new media art & programming"
+        />
 
-		<meta property="og:url" content="https://xyny.art">
-		<meta property="og:type" content="website">
-		<meta property="og:title" content="xyny.art">
-		<meta property="og:description" content="xyny's website and portfolio | new media art & programming">
-		<meta property="og:image" content="/og_image.png">
+        <meta property="og:url" content="https://xyny.art" />
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content="xyny.art" />
+        <meta
+            property="og:description"
+            content="xyny's website and portfolio | new media art & programming"
+        />
+        <meta property="og:image" content="/og_image.png" />
 
-		<meta name="twitter:card" content="summary_large_image">
-		<meta property="twitter:domain" content="xyny.art">
-		<meta property="twitter:url" content="https://xyny.art">
-		<meta name="twitter:title" content="xyny.art">
-		<meta name="twitter:description" content="xyny's website and portfolio | new media art & programming">
-		<meta name="twitter:image" content="/og_image.png">
-
-	</head>
-	<body class="font-sans">
-		<slot />
-	</body>
-	<script>
-		if (
-			(window.matchMedia('(prefers-color-scheme: dark)').matches || sessionStorage.getItem("dark") == "true")
-			&& sessionStorage.getItem("dark") != "false"
-		) {
-			document.body.classList.add("dark")
-		} 
-	</script>
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta property="twitter:domain" content="xyny.art" />
+        <meta property="twitter:url" content="https://xyny.art" />
+        <meta name="twitter:title" content="xyny.art" />
+        <meta
+            name="twitter:description"
+            content="xyny's website and portfolio | new media art & programming"
+        />
+        <meta name="twitter:image" content="/og_image.png" />
+    </head>
+    <body class="font-sans">
+        <slot />
+    </body>
+    <script>
+        if (
+            (window.matchMedia("(prefers-color-scheme: dark)").matches ||
+                sessionStorage.getItem("dark") == "true") &&
+            sessionStorage.getItem("dark") != "false"
+        ) {
+            document.body.classList.add("dark");
+        }
+    </script>
 </html>
 
 <style is:global>
-	.prose ul {
-	  margin: 0em 0;
-	  list-style-type: square;
-	}
+    .prose ul {
+        margin: 0em 0;
+        list-style-type: square;
+    }
 </style>

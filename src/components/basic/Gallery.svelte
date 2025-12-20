@@ -1,4 +1,8 @@
 <script lang="ts">
+    import MaterialSymbolsArrowForwardRounded from "~icons/material-symbols/arrow-forward-rounded";
+    import MaterialSymbolsArrowBackRounded from "~icons/material-symbols/arrow-back-rounded";
+    import MaterialSymbolsArrowDropDownRounded from "~icons/material-symbols/arrow-drop-down-rounded";
+
     let { gallery } = $props();
     let currentSection = $state(0);
     let currentImage = $state(0);
@@ -41,9 +45,10 @@
                 </option>
             {/each}
         </select>
-        <i
-            class="absolute i-material-symbols-arrow-drop-down-rounded w-8 h-8 right-4 top-1/2 -translate-y-1/2 pointer-events-none"
-        ></i>
+
+        <MaterialSymbolsArrowDropDownRounded
+            class="absolute size-8 right-4 top-1/2 -translate-y-1/2 pointer-events-none"
+        />
     </div>
     <div
         class="border-b-2 border-black dark:border-white pb-4 px-6 text-[#191919] dark:text-[#DDD] bg-gray-200 dark:bg-black"
@@ -57,9 +62,10 @@
             onclick={decrement}
             class="p-4 px-5 border-r-2 border-black dark:border-white flex items-center gap-2 hover:underline focus:underline min-w-max"
         >
-            <i
-                class="i-material-symbols-arrow-back-rounded inline-block w-6 h-6"
-            ></i> previous image
+            <MaterialSymbolsArrowBackRounded
+                class="inline-block w-6 h-6 translate-y-0.5"
+            />
+            previous image
         </button>
         <div class="p-4 bg-gray-50 w-full text-center dark:bg-black">
             ~~^^~~
@@ -68,9 +74,10 @@
             onclick={increment}
             class="p-4 px-5 border-l-2 border-black dark:border-white flex items-center gap-2 hover:underline focus:underline min-w-max"
         >
-            next image <i
-                class="i-material-symbols-arrow-forward-rounded inline-block w-6 h-6"
-            ></i>
+            next image
+            <MaterialSymbolsArrowForwardRounded
+                class="inline-block w-6 h-6 translate-y-0.5"
+            />
         </button>
     </div>
     <figure class="w-fit p-4 pb-0 max-w-full">
@@ -78,7 +85,7 @@
             {imgObject.caption}
         </figcaption>
         <div
-            class="w-4xl max-w-full sm:h-2xl lg:h-4xl max-h-full mb-4 relative aspect-1"
+            class="w-4xl max-w-full sm:h-128 h-96 max-h-full mb-4 relative aspect-1"
         >
             {#each gallery.flatMap((section) => section.images) as image}
                 {#if image.img !== undefined && image.url !== undefined}
