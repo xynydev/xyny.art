@@ -1,23 +1,47 @@
 links:
   - name: xyny.art
     url: https://xyny.art/
-  - name: cathode.church (mastodon)
-    url: https://cathode.church/@xyny
+    category: consume
+
   - name: metapixl.com (pixelfed)
     url: https://metapixl.com/xyny
+    category: consume
   - name: bluesky (bridged)
     url: https://bsky.app/profile/xyny.art
+    category: consume
+  - name: instagram (ew)
+    url: https://instagram.com/xyny.art
+    category: consume
   - name: bandcamp.com
     url: https://xyny.bandcamp.com/
+    category: consume
+
+  - name: hello@xyny.art
+    url: mailto:hello@xyny.art
+    category: contact
+  - name: xynydev (discord)
+    url: https://discordapp.com/users/306435207710507008
+    category: contact
+
+  - name: cathode.church (mastodon)
+    url: https://cathode.church/@xyny
+    category: chronicle
   - name: bandcamp.com (fan account)
     url: https://bandcamp.com/xyny/
+    category: chronicle
   - name: listenbrainz.org
     url: https://listenbrainz.org/user/xyny/
+    category: chronicle
   - name: rateyourmusic.com
     url: https://rateyourmusic.com/~xyny
+    category: chronicle
+
   - name: github.com
     url: https://github.com/xynydev
+    category: code
   - name: codeberg.org
     url: https://codeberg.org/xyny
+    category: code
   - name: blue-build.org (i maintain)
     url: https://blue-build.org/
+    category: code

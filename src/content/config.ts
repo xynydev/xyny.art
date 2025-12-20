@@ -38,6 +38,7 @@ export const collections = {
           z.object({
             name: z.string(),
             url: z.string(),
+            category: z.enum(["contact", "consume", "chronicle", "code"]),
           }),
         ),
       }),

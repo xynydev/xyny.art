@@ -1,19 +1,92 @@
 ---
-import Layout from '@layouts/Layout.astro';
-import Header from '@components/basic/Header.astro';
+import Layout from "@layouts/Layout.astro";
+import Header from "@components/basic/Header.astro";
 
+import { getEntry } from "astro:content";
+const links = await getEntry("links", "links");
 
-import { getEntry } from 'astro:content';
-const links = await getEntry('links', 'links');
+const linksByCategory = {
+    consume: links.data.links.filter((l) => l.category === "consume"),
+    chronicle: links.data.links.filter((l) => l.category === "chronicle"),
+    contact: links.data.links.filter((l) => l.category === "contact"),
+    code: links.data.links.filter((l) => l.category === "code"),
+};
 ---
 
 <Layout title="links">
     <main class="dark:bg-black dark:text-white w-full min-h-screen">
-        <Header/>
-        <section class="max-w-4xl mx-auto mt-8 p-4 text-xl flex flex-col flex-wrap sm:gap-4 sm:line-height-4 gap-8 line-height-6">
-            {links.data.links.map(l =>
-                <a class="hover:underline focus:underline focus:outline-none" href={l.url} target="_blank">{l.name}</a>
-            )}
+        <Header />
+        <section
+            class="max-w-4xl mx-auto mt-8 p-4 text-xl grid sm:grid-cols-2 sm:gap-4 sm:line-height-4 gap-8 line-height-6"
+        >
+            <h2 class="text-2xl">Consume</h2>
+            <p>links for "consuming" the "content" i create</p>
+            {
+                linksByCategory.consume.map((l) => (
+                    <a
+                        class="hover:underline focus:underline outline p-4 py-5"
+                        href={l.url}
+                        target="_blank"
+                    >
+                        {l.name}
+                    </a>
+                ))
+            }
+        </section>
+        <section
+            class="max-w-4xl mx-auto mt-8 p-4 text-xl grid sm:grid-cols-2 sm:gap-4 sm:line-height-4 gap-8 line-height-6"
+        >
+            <h2 class="text-2xl">Contact</h2>
+            <p>
+                links for making contact with <span class="line-through"
+                    >aliens</span
+                > me
+            </p>
+            {
+                linksByCategory.contact.map((l) => (
+                    <a
+                        class="hover:underline focus:underline outline p-4 py-5"
+                        href={l.url}
+                        target="_blank"
+                    >
+                        {l.name}
+                    </a>
+                ))
+            }
+        </section>
+        <section
+            class="max-w-4xl mx-auto mt-8 p-4 text-xl grid sm:grid-cols-2 sm:gap-4 sm:line-height-4 gap-8 line-height-6"
+        >
+            <h2 class="text-2xl">Chronicle</h2>
+            <p>links for stalking me online</p>
+            {
+                linksByCategory.chronicle.map((l) => (
+                    <a
+                        class="hover:underline focus:underline outline p-4 py-5"
+                        href={l.url}
+                        target="_blank"
+                    >
+                        {l.name}
+                    </a>
+                ))
+            }
+        </section>
+        <section
+            class="max-w-4xl mx-auto mt-8 p-4 text-xl grid sm:grid-cols-2 sm:gap-4 sm:line-height-4 gap-8 line-height-6"
+        >
+            <h2 class="text-2xl">Code</h2>
+            <p>links for coding with me / judging my code</p>
+            {
+                linksByCategory.code.map((l) => (
+                    <a
+                        class="hover:underline focus:underline outline p-4 py-5"
+                        href={l.url}
+                        target="_blank"
+                    >
+                        {l.name}
+                    </a>
+                ))
+            }
         </section>
     </main>
 </Layout>
