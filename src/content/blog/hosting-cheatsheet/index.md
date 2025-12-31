@@ -24,6 +24,7 @@ The inspiration for making this cheatsheet came partially from Trafotin’s vide
 ## Table of Contents
 - [Prerequisites](#prerequisites)
   - [You should own a domain name](#you-should-own-a-domain-name)
+  - [Cloudflare...](#cloudflare)
 - [Taking advantage of big tech](#taking-advantage-of-big-tech)
   - [Hosting a website for free](#hosting-a-website-for-free)
 - [Self-hosting](#self-hosting)
@@ -47,6 +48,19 @@ That _control_ aspect is important. If you use a free domain or subdomain, you a
 Depending on the TLD you choose, a domain name runs at about **$10-$30 per year**, though some more premium TLDs can cost upwards of $100 per year. A cheap domain name is probably not a huge investment for most nerds reading this.
 
 I'm a happy customer of [Porkbun](https://porkbun.com/) (not sponsored), and I use [Cloudflare](https://www.cloudflare.com/) for DNS management (not sponsored). I've read good things about Porkbun and they have a pretty good user experience. Cloudflare is a great place to manage your DNS if you are also interested in using Cloudflare as a proxy, Cloudflare Tunnels as a secure firewall-bypassing reverse proxy, or Cloudflare Workers as a place to host a website or web app for free.
+
+### Cloudflare...
+
+> "CloudFlare is a very helpful service if you are a website owner and don’t want to deal with separate services for CDN, DNS, basic DDOS protection and other (superficial) security needs. You can have all these services in a one-stop-shop and you can have it all for free. It’s hard to pass up the offer and go for a commercial solution"
+> - citation from [_CloudFlare is ruining the internet (for me)_](https://www.slashgeek.net/2016/05/17/cloudflare-is-ruining-the-internet-for-me/) by [_Slashgeek_](https://www.slashgeek.net/)
+
+Yes, that glowing review of a citation is really from an article with _"Cloudflare is ruining the internet"_ in the title. And that article is not alone. The internet if [full](https://easydns.com/blog/2020/07/20/turns-out-half-the-internet-has-a-single-point-of-failure-called-cloudflare/) [of](https://robindev.substack.com/p/cloudflare-took-down-our-website) [articles](https://jrhawley.ca/2023/08/07/blocked-by-cloudflare) containing friendly and less friendly **criticism of Cloudflare and its monopoly-like position as a frontdoor to the internet** (I'm sure you can find more on Hacker News next time they have an outage). The **user interface of their dashboard is cluttered and slow and generally _sucks ass_** (in my opinion). 
+
+I am not proud of being a Cloudflare user.
+
+Nevertheless, this guide, for the time being, will talk of and recommend many Cloudflare services. Because it's a great product for the price its low low price of free, and there is a lot of ecosystem and support around it. 
+
+If you think there is a free replacement that is _better_ than some service provided by Cloudflare, please please let me know.
 
 ## Taking advantage of big tech
 
