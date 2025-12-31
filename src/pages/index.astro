@@ -1,6 +1,7 @@
 ---
 import PortfolioItem from "@components/basic/PortfolioCard.astro";
 import Layout from "../layouts/Layout.astro";
+import Footer from "@components/basic/Footer.astro";
 import SubtextWriter from "@components/basic/SubtextWriter.svelte";
 
 import { getEntry, getCollection } from "astro:content";
@@ -110,4 +111,5 @@ import { Image } from "astro:assets";
             }
         </section>
     </main>
+    <Footer />
 </Layout>

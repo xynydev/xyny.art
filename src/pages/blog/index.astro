@@ -1,6 +1,7 @@
 ---
 import Layout from "@layouts/Layout.astro";
 import Header from "@components/basic/Header.astro";
+import Footer from "@components/basic/Footer.astro";
 import { Image } from "astro:assets";
 
 import { getCollection } from "astro:content";
@@ -81,4 +82,5 @@ const posts = await getCollection("blog");
             </ul>
         </section>
     </main>
+    <Footer />
 </Layout>

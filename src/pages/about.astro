@@ -1,6 +1,7 @@
 ---
 import Layout from "@layouts/Layout.astro";
 import Header from "@components/basic/Header.astro";
+import Footer from "@components/basic/Footer.astro";
 
 import { getEntry } from "astro:content";
 const about = await getEntry("about", "about");
@@ -16,4 +17,5 @@ const { Content } = await about.render();
             <Content />
         </section>
     </main>
+    <Footer />
 </Layout>

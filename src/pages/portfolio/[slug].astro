@@ -2,6 +2,7 @@
 import Layout from "@layouts/Layout.astro";
 import Gallery from "@components/basic/Gallery.svelte";
 import Header from "@components/basic/Header.astro";
+import Footer from "@components/basic/Footer.astro";
 
 import { getCollection } from "astro:content";
 import { getImage } from "astro:assets";
@@ -45,4 +46,5 @@ for (let section of entry.data.gallery) {
             <Content />
         </div>
     </main>
+    <Footer />
 </Layout>
