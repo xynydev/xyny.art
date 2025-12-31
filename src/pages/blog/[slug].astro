@@ -16,6 +16,41 @@ const { entry } = Astro.props;
 const { Content } = await entry.render();
 ---
 
+<style is:global>
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        position: relative;
+    }
+    .header-anchor-link {
+        position: absolute;
+        left: -1.1em;
+        transform: translateY(40%);
+        display: inline;
+        font-size: 0.6em;
+        font-weight: normal;
+        text-decoration: none !important;
+        transition: transform 100ms ease-in-out;
+        &:hover {
+            transform: translateY(40%) translateX(30%) rotate(-45deg);
+        }
+        & .icon {
+            background-image: url("/link.svg");
+            background-size: contain;
+            background-repeat: no-repeat;
+            width: 1em;
+            height: 1em;
+            display: inline-block;
+        }
+        .dark & .icon {
+            filter: invert();
+        }
+    }
+</style>
+
 <Layout
     title={`${entry.data.title} | XYNY`}
     ogImage={entry.data.image?.src ?? "/og_image.png"}
@@ -26,7 +61,7 @@ const { Content } = await entry.render();
             <Image src={entry.data.image} alt={entry.data.title} />
         </section>
         <div
-            class="prose dark:prose-invert prose-li:marker:text-black dark:prose-li:marker:text-white prose-ul:ps-4 prose-p:my-3 prose-img:my-2 prose-li:my-0 max-w-4xl mx-auto text-[#191919] dark:text-[#DDD] py-6 p-2 px-5 font-body prose-lg prose-h1:text-4xl prose-h2:mt-12 prose-blockquote:not-italic"
+            class="prose dark:prose-invert prose-li:marker:text-black dark:prose-li:marker:text-white prose-ul:ps-4 prose-p:my-3 prose-img:my-2 prose-li:my-0 max-w-4xl mx-auto text-[#191919] dark:text-[#DDD] py-6 p-2 px-6 font-body prose-lg prose-h1:text-4xl prose-h2:mt-12 prose-blockquote:not-italic"
         >
             <Content />
         </div>

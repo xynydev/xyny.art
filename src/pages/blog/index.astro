@@ -30,22 +30,50 @@ const posts = await getCollection("blog");
         </section>
         <hr class="mb-10" />
         <section class="max-w-4xl mx-auto">
-            <ul class="grid grid-cols-1 md:grid-cols-2 p-4">
+            <ul class="grid grid-cols-1 md:grid-cols-2 p-4 gap-8">
+                {
+                    posts
+                        .filter((post) => post.data.pinned)
+                        .map((post) => (
+                            <a href={`/blog/${post.slug}`} class="group">
+                                <li class="max-w-xl">
+                                    <h3 class="grid grid-cols-[auto_auto] p-2 px-4 text-xl -translate-2 group-hover:-translate-3 group-focus:-translate-3 group-focus:underline group-hover:underline transition-transform bg-white dark:bg-black outline-2 absolute z-10">
+                                        {post.data.title}
+                                        <em class="text-sm mr-2 ml-4 mt-1.5">
+                                            {post.data.date.getFullYear()}
+                                        </em>
+                                    </h3>
+                                    <Image
+                                        src={post.data.image}
+                                        alt={post.data.title}
+                                        class="outline-2 transition-transform group-focus:translate-1 group-hover:translate-1"
+                                    />
+                                </li>
+                            </a>
+                        ))
+                }
+            </ul>
+        </section>
+        <section class="max-w-4xl mx-auto mt-10">
+            <ul class="flex flex-col gap-1">
                 {
                     posts.map((post) => (
                         <a href={`/blog/${post.slug}`} class="group">
-                            <li class="max-w-xl">
-                                <h3 class="p-2 px-4 text-xl -translate-2 group-hover:-translate-3 group-focus:-translate-3 group-focus:underline group-hover:underline transition-transform bg-white outline-2 absolute z-10">
+                            <li class="grid sm:grid-cols-[auto_1fr_auto_auto] gap-4 group cursor-pointer border-t-1 p-4">
+                                <span class="font-mono">
+                                    {post.data.date.toLocaleDateString("sv")}
+                                </span>
+                                <h3 class="underline group-hover:decoration-2">
                                     {post.data.title}
-                                    <em class="text-sm mx-2">
-                                        {post.data.date.getFullYear()}
-                                    </em>
                                 </h3>
-                                <Image
-                                    src={post.data.image}
-                                    alt={post.data.title}
-                                    class="outline-2 transition-transform group-focus:translate-1 group-hover:translate-1"
-                                />
+                                <p>{post.data.excerpt}</p>
+                                <ul class="flex flex-row gap-2 flex-wrap">
+                                    {post.data.tags.map((tag) => (
+                                        <li class="outline px-1 h-fit">
+                                            {tag}
+                                        </li>
+                                    ))}
+                                </ul>
                             </li>
                         </a>
                     ))

@@ -50,8 +50,10 @@ export const collections = {
         title: z.string(),
         date: z.date(),
         excerpt: z.string(),
-        tags: z.array(z.string()),
+        tags: z.array(z.string()).optional(),
         image: image().optional(),
+        imageAlt: z.string().optional(),
+        pinned: z.boolean().optional(),
       }),
   }),
 };

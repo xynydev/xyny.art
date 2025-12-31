@@ -4,6 +4,9 @@ import svelte from "@astrojs/svelte";
 import Icons from "unplugin-icons/vite";
 import tailwindcss from "@tailwindcss/vite";
 
+import rehypeSlug from "rehype-slug";
+import rehypeAutolinkHeadings from "rehype-autolink-headings";
+
 // https://astro.build/config
 export default defineConfig({
   integrations: [svelte()],
@@ -19,6 +22,21 @@ export default defineConfig({
       Icons({
         compiler: "svelte",
       }),
+    ],
+  },
+
+  markdown: {
+    rehypePlugins: [
+      rehypeSlug,
+      [
+        rehypeAutolinkHeadings,
+        {
+          behavior: "prepend",
+          properties: {
+            className: ["header-anchor-link"],
+          },
+        },
+      ],
     ],
   },
 });

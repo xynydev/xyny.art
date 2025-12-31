@@ -4,6 +4,8 @@ date: 2026-01-01
 excerpt: A cheatsheet for web- and self-hosting.
 tags: [web, hosting]
 image: cloud.png
+imageAlt: An abstract textured artwork with a pinkish hue, containing distorted logos of Cloudflare, Podman, and CoreOS
+pinned: true
 ---
 
 # Web- and Self-Hosting Cheatsheet
