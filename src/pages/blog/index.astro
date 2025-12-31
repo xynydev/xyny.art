@@ -29,7 +29,7 @@ const posts = await getCollection("blog");
                 might not be spent.
             </p>
         </section>
-        <hr class="mb-10" />
+        <hr class="mb-10 max-w-5xl mx-auto" />
         <section class="max-w-4xl mx-auto">
             <ul class="grid grid-cols-1 md:grid-cols-2 p-4 gap-8">
                 {
@@ -38,7 +38,7 @@ const posts = await getCollection("blog");
                         .map((post) => (
                             <a href={`/blog/${post.slug}`} class="group">
                                 <li class="max-w-xl">
-                                    <h3 class="grid grid-cols-[auto_auto] p-2 px-4 text-xl -translate-2 group-hover:-translate-3 group-focus:-translate-3 group-focus:underline group-hover:underline transition-transform bg-white dark:bg-black outline-2 absolute z-10">
+                                    <h3 class="grid grid-cols-[auto_auto] p-2 px-4 sm:text-xl max-sm:-translate-y-3 -translate-2 group-hover:-translate-3 group-focus:-translate-3 group-focus:underline group-hover:underline transition-transform bg-white dark:bg-black outline-2 absolute z-10">
                                         {post.data.title}
                                         <em class="text-sm mr-2 ml-4 mt-1.5">
                                             {post.data.date.getFullYear()}
@@ -60,7 +60,7 @@ const posts = await getCollection("blog");
                 {
                     posts.map((post) => (
                         <a href={`/blog/${post.slug}`} class="group">
-                            <li class="grid sm:grid-cols-[auto_1fr_auto_auto] gap-4 group cursor-pointer border-t-1 p-4">
+                            <li class="grid sm:grid-cols-[auto_1fr_auto_auto] gap-4 group cursor-pointer border-t-1 mx-4 p-4">
                                 <span class="font-mono">
                                     {post.data.date.toLocaleDateString("sv")}
                                 </span>
