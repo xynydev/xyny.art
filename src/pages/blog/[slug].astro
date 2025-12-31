@@ -1,0 +1,43 @@
+---
+import Layout from "@layouts/Layout.astro";
+import Header from "@components/basic/Header.astro";
+import { Image } from "astro:assets";
+
+import { getCollection } from "astro:content";
+
+export async function getStaticPaths() {
+    const posts = await getCollection("blog");
+    return posts.map((entry, idx) => ({
+        params: { slug: entry.slug },
+        props: { entry },
+    }));
+}
+const { entry } = Astro.props;
+const { Content } = await entry.render();
+---
+
+<Layout
+    title={`${entry.data.title} | XYNY`}
+    ogImage={entry.data.image?.src ?? "/og_image.png"}
+>
+    <main class="dark:bg-black dark:text-white w-full">
+        <Header />
+        <section class="max-w-4xl mx-auto">
+            <Image src={entry.data.image} alt={entry.data.title} />
+        </section>
+        <div
+            class="prose dark:prose-invert prose-li:marker:text-black dark:prose-li:marker:text-white prose-ul:ps-4 prose-p:my-3 prose-img:my-2 prose-li:my-0 max-w-4xl mx-auto text-[#191919] dark:text-[#DDD] py-6 p-2 px-5 font-body prose-lg prose-h1:text-4xl prose-h2:mt-12 prose-blockquote:not-italic"
+        >
+            <Content />
+        </div>
+    </main>
+</Layout>
+
+<style is:global>
+    blockquote p {
+        &::before,
+        &::after {
+            content: "";
+        }
+    }
+</style>

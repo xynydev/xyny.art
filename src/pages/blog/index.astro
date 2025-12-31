@@ -1,0 +1,56 @@
+---
+import Layout from "@layouts/Layout.astro";
+import Header from "@components/basic/Header.astro";
+import { Image } from "astro:assets";
+
+import { getCollection } from "astro:content";
+const posts = await getCollection("blog");
+---
+
+<Layout title="blog">
+    <main class="dark:bg-black dark:text-white w-full min-h-screen">
+        <Header />
+        <section
+            class="prose dark:prose-invert prose-li:marker:text-black dark:prose-li:marker:text-white prose-ul:ps-4 prose-p:my-3 prose-img:my-2 prose-li:my-0 max-w-4xl mx-auto text-[#191919] dark:text-[#DDD] mt-6 pb-12 p-4 font-body"
+        >
+            <h1>xyny's writings</h1>
+            <p>
+                <blockquote class="not-italic mb-6">
+                    A blog (a truncation of "weblog") is an informational
+                    website consisting of discrete, often informal diary-style
+                    text entries also known as posts. <br />
+                    — Wikipedia, 2025
+                </blockquote>
+
+                This collection of writings may or may not be a blog. Posts here
+                may or may not be chronologically ordered or accurately listed.
+                Content might or might not be kept up-to-date. Effort might or
+                might not be spent.
+            </p>
+        </section>
+        <hr class="mb-10" />
+        <section class="max-w-4xl mx-auto">
+            <ul class="grid grid-cols-1 md:grid-cols-2 p-4">
+                {
+                    posts.map((post) => (
+                        <a href={`/blog/${post.slug}`} class="group">
+                            <li class="max-w-xl">
+                                <h3 class="p-2 px-4 text-xl -translate-2 group-hover:-translate-3 group-focus:-translate-3 group-focus:underline group-hover:underline transition-transform bg-white outline-2 absolute z-10">
+                                    {post.data.title}
+                                    <em class="text-sm mx-2">
+                                        {post.data.date.getFullYear()}
+                                    </em>
+                                </h3>
+                                <Image
+                                    src={post.data.image}
+                                    alt={post.data.title}
+                                    class="outline-2 transition-transform group-focus:translate-1 group-hover:translate-1"
+                                />
+                            </li>
+                        </a>
+                    ))
+                }
+            </ul>
+        </section>
+    </main>
+</Layout>

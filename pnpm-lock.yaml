@@ -11,6 +11,9 @@ importers:
       '@astrojs/svelte':
         specifier: ^7.2.2
         version: 7.2.2(@types/node@24.0.1)(astro@5.16.4(@types/node@24.0.1)(jiti@2.6.1)(lightningcss@1.30.2)(rollup@4.43.0)(tsx@4.19.2)(typescript@5.2.2))(jiti@2.6.1)(lightningcss@1.30.2)(svelte@5.2.8)(tsx@4.19.2)(typescript@5.2.2)
+      '@fontsource-variable/atkinson-hyperlegible-next':
+        specifier: ^5.2.6
+        version: 5.2.6
       '@fontsource-variable/azeret-mono':
         specifier: ^5.2.11
         version: 5.2.11
@@ -596,6 +599,9 @@ packages:
     engines: {node: '>=18'}
     cpu: [x64]
     os: [win32]
+
+  '@fontsource-variable/atkinson-hyperlegible-next@5.2.6':
+    resolution: {integrity: sha512-D0Z8peFkRGYACvmWp8Sl8YPGYLBEJbzqapugtsMEYSUUtpQDiZVDHjk9s7bqB4hSCRYCrKuW6V1V+mnHybVnPw==}
 
   '@fontsource-variable/azeret-mono@5.2.11':
     resolution: {integrity: sha512-C2lkE7Pg0yg46ze3+AaJkolyldWBxluGiRG4pB5vHSdQRApOdQME6WbdsfYyy6wFDn/zPNx+1mwRJPnMRnovpA==}
@@ -3327,6 +3333,8 @@ snapshots:
 
   '@esbuild/win32-x64@0.25.5':
     optional: true
+
+  '@fontsource-variable/atkinson-hyperlegible-next@5.2.6': {}
 
   '@fontsource-variable/azeret-mono@5.2.11': {}
 

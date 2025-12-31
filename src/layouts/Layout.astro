@@ -2,13 +2,15 @@
 import "@fontsource-variable/outfit";
 import "@fontsource-variable/azeret-mono";
 import "@fontsource-variable/roboto";
+import "@fontsource-variable/atkinson-hyperlegible-next";
 import "../styles/global.css";
 
 interface Props {
     title: string;
+    ogImage?: string;
 }
 
-const { title } = Astro.props;
+const { title, ogImage = "/og_image.png" } = Astro.props;
 ---
 
 <!doctype html>
@@ -32,7 +34,7 @@ const { title } = Astro.props;
             property="og:description"
             content="xyny's website and portfolio | new media art & programming"
         />
-        <meta property="og:image" content="/og_image.png" />
+        <meta property="og:image" content={ogImage} />
 
         <meta name="twitter:card" content="summary_large_image" />
         <meta property="twitter:domain" content="xyny.art" />
@@ -42,7 +44,7 @@ const { title } = Astro.props;
             name="twitter:description"
             content="xyny's website and portfolio | new media art & programming"
         />
-        <meta name="twitter:image" content="/og_image.png" />
+        <meta name="twitter:image" content={ogImage} />
     </head>
     <body class="font-sans">
         <slot />

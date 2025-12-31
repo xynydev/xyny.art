@@ -46,6 +46,15 @@
                         class="ml-auto left-48 top-2 absolute i-mdi-arrow-right-thin inline-block h-4 w-4"
                     />
                 </a>
+                <a
+                    class="capitalize px-8 w-full hover:bg-rose-600 transition focus:bg-rose-600 relative"
+                    href="/blog"
+                >
+                    blog
+                    <MdiArrowRightThin
+                        class="ml-auto left-48 top-2 absolute i-mdi-arrow-right-thin inline-block h-4 w-4"
+                    />
+                </a>
             </div>
         </div>
     </nav>

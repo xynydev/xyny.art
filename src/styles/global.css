@@ -5,6 +5,7 @@
     --font-sans: "Outfit Variable", sans-serif;
     --font-mono: "Azeret Mono Variable", monospace;
     --font-corpo: "Roboto Variable", sans-serif;
+    --font-body: "Atkinson Hyperlegible Next Variable", sans-serif;
 }
 
 @custom-variant dark (&:where(.dark, .dark *));
