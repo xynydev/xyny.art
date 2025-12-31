@@ -45,19 +45,20 @@ const { title, ogImage = "/og_image.png" } = Astro.props;
             content="xyny's website and portfolio | new media art & programming"
         />
         <meta name="twitter:image" content={ogImage} />
+
+        <script>
+            if (
+                (window.matchMedia("(prefers-color-scheme: dark)").matches ||
+                    sessionStorage.getItem("dark") == "true") &&
+                sessionStorage.getItem("dark") != "false"
+            ) {
+                document.body.classList.add("dark");
+            }
+        </script>
     </head>
     <body class="font-sans">
         <slot />
     </body>
-    <script>
-        if (
-            (window.matchMedia("(prefers-color-scheme: dark)").matches ||
-                sessionStorage.getItem("dark") == "true") &&
-            sessionStorage.getItem("dark") != "false"
-        ) {
-            document.body.classList.add("dark");
-        }
-    </script>
 </html>
 
 <style is:global>
