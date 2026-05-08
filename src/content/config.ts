@@ -43,4 +43,18 @@ export const collections = {
         ),
       }),
   }),
+  blog: defineCollection({
+    type: "content",
+    schema: ({ image }) =>
+      z.object({
+        title: z.string(),
+        date: z.date(),
+        excerpt: z.string(),
+        tags: z.array(z.string()).optional(),
+        image: image().optional(),
+        imageAlt: z.string().optional(),
+        pinned: z.boolean().optional(),
+        draft: z.boolean().optional(),
+      }),
+  }),
 };

@@ -1,6 +1,7 @@
 ---
 import Layout from "@layouts/Layout.astro";
 import Header from "@components/basic/Header.astro";
+import Footer from "@components/basic/Footer.astro";
 
 import { getEntry } from "astro:content";
 const links = await getEntry("links", "links");
@@ -89,4 +90,5 @@ const linksByCategory = {
             }
         </section>
     </main>
+    <Footer />
 </Layout>

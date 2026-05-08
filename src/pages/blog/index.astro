@@ -1,0 +1,95 @@
+---
+import Layout from "@layouts/Layout.astro";
+import Header from "@components/basic/Header.astro";
+import Footer from "@components/basic/Footer.astro";
+import { Image } from "astro:assets";
+
+import { getCollection } from "astro:content";
+const posts = await getCollection("blog");
+---
+
+<Layout title="blog">
+    <main class="dark:bg-black dark:text-white w-full min-h-screen">
+        <Header />
+        <section
+            class="prose dark:prose-invert prose-li:marker:text-black dark:prose-li:marker:text-white prose-ul:ps-4 prose-p:my-3 prose-img:my-2 prose-li:my-0 max-w-4xl mx-auto text-[#191919] dark:text-[#DDD] mt-6 pb-12 p-4 font-body"
+        >
+            <h1>xyny's writings</h1>
+            <p>
+                <blockquote class="not-italic mb-6">
+                    A blog (a truncation of "weblog") is an informational
+                    website consisting of discrete, often informal diary-style
+                    text entries also known as posts. <br />
+                    — Wikipedia, 2025
+                </blockquote>
+
+                This collection of writings may or may not be a blog. Posts here
+                may or may not be chronologically ordered or accurately listed.
+                Content might or might not be kept up-to-date. Effort might or
+                might not be spent.
+            </p>
+        </section>
+        <hr class="mb-10 max-w-5xl mx-auto" />
+        <section class="max-w-4xl mx-auto md:pb-24">
+            <ul class="grid grid-cols-1 md:grid-cols-2 p-4 gap-8">
+                {
+                    posts
+                        .filter((post) => post.data.pinned && !post.data.draft)
+                        .sort((a, b) => (a.data.date > b.data.date ? -1 : 1))
+                        .map((post, idx) => (
+                            <a
+                                href={`/blog/${post.slug}`}
+                                class={`group ${idx % 2 == 1 ? "md:translate-y-16" : ""}`}
+                            >
+                                <li class="max-w-xl">
+                                    <h3 class="grid grid-cols-[auto_auto] p-2 px-4 sm:text-xl max-sm:-translate-y-3 -translate-2 group-hover:-translate-3 group-focus:-translate-3 group-focus:underline group-hover:underline transition-transform bg-white dark:bg-black outline-2 absolute z-10">
+                                        {post.data.title}
+                                        <em class="text-sm mr-2 ml-4 mt-1.5">
+                                            {post.data.date.getFullYear()}
+                                        </em>
+                                    </h3>
+                                    <Image
+                                        src={post.data.image}
+                                        alt={post.data.title}
+                                        class="outline-2 transition-transform group-focus:translate-1 group-hover:translate-1"
+                                    />
+                                </li>
+                            </a>
+                        ))
+                }
+            </ul>
+        </section>
+        <section class="max-w-4xl mx-auto mt-10">
+            <ul class="flex flex-col gap-1">
+                {
+                    posts
+                        .filter((post) => !post.data.draft)
+                        .sort((a, b) => (a.data.date > b.data.date ? -1 : 1))
+                        .map((post) => (
+                            <a href={`/blog/${post.slug}`} class="group">
+                                <li class="grid sm:grid-cols-[auto_1fr_auto_auto] gap-4 group cursor-pointer border-t-1 mx-4 p-4">
+                                    <span class="font-mono">
+                                        {post.data.date.toLocaleDateString(
+                                            "sv",
+                                        )}
+                                    </span>
+                                    <h3 class="underline group-hover:decoration-2">
+                                        {post.data.title}
+                                    </h3>
+                                    <p>{post.data.excerpt}</p>
+                                    <ul class="flex flex-row gap-2 flex-wrap">
+                                        {post.data.tags.map((tag) => (
+                                            <li class="outline px-1 h-fit">
+                                                {tag}
+                                            </li>
+                                        ))}
+                                    </ul>
+                                </li>
+                            </a>
+                        ))
+                }
+            </ul>
+        </section>
+    </main>
+    <Footer />
+</Layout>
