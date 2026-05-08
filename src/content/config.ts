@@ -54,6 +54,7 @@ export const collections = {
         image: image().optional(),
         imageAlt: z.string().optional(),
         pinned: z.boolean().optional(),
+        draft: z.boolean().optional(),
       }),
   }),
 };

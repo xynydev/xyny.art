@@ -11,6 +11,8 @@ import rehypeAutolinkHeadings from "rehype-autolink-headings";
 export default defineConfig({
   integrations: [svelte()],
 
+  site: "https://xyny.art",
+
   image: {
     domains: ["s3.metapixl.com"],
     remotePatterns: [{ protocol: "https" }],

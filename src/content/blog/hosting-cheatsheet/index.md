@@ -6,6 +6,7 @@ tags: [web, hosting]
 image: cloud.png
 imageAlt: An abstract textured artwork with a pinkish hue, containing distorted logos of Cloudflare, Podman, and CoreOS
 pinned: true
+draft: true
 ---
 
 # Web- and Self-Hosting Cheatsheet
