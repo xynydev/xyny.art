@@ -2,6 +2,9 @@ links:
   - name: xyny.art
     url: https://xyny.art/
     category: consume
+  - name: xyny's writings rss feed
+    url: https://xyny.art/blog/feed.xml
+    category: consume
 
   - name: metapixl.com (pixelfed)
     url: https://metapixl.com/xyny

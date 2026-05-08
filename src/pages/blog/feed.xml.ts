@@ -73,9 +73,6 @@ export async function GET(context: APIContext) {
     });
   }
 
-  // TODO add rss url everyhere
-  // TODO publish
-
   return rss({
     // `<title>` field in output xml
     title: "xyny's writings",
