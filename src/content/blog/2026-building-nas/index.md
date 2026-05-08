@@ -756,4 +756,4 @@ Obviously, this is not for everyone. Most people are busy, so they just buy into
 
 And most important, this was really fun! If you have the time and energy, I really suggest learning how all the puzzle pieces come together, be it on a homeserver project like this or any other thing you want to nerd about. Figuring things out is one of the most rewarding experiences in life, and I would not consider giving up that in favour of a boring default consumer appliance or an uncustomizable operating system, or having an AI-agent do everything for me.
 
-I hope you learned something here as well. If you liked it, [follow me everywhere I guess](/link), [subscribe to this "blog" using RSS](/blog/feed.xml), and go out onto a busy square or street to shout compliments about the post.
+I hope you learned something here as well. If you liked it, [follow me everywhere I guess](/links), [subscribe to this "blog" using RSS](/blog/feed.xml), and go out onto a busy square or street to shout compliments about the post.
