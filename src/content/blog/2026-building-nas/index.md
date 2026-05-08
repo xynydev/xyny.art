@@ -1,6 +1,6 @@
 ---
 title: Building a custom NAS with Fedora CoreOS
-date: 2026-04-22
+date: 2026-05-08
 excerpt: for free! (with used disks and parts from a previous PC)
 tags: [web, hosting]
 image: eserv.png
