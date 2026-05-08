@@ -2,7 +2,7 @@
 title: Building a custom NAS with Fedora CoreOS
 date: 2026-05-08
 excerpt: for free! (with used disks and parts from a previous PC)
-tags: [web, hosting]
+tags: [server, selfhosting]
 image: eserv.png
 imageAlt: An abstract textured artwork with a pinkish hue, containing distorted logos of Cloudflare, Podman, and CoreOS
 pinned: true
