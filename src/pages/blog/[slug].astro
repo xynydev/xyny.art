@@ -53,7 +53,7 @@ const { Content } = await entry.render();
 </style>
 
 <Layout
-    title={`${entry.data.title} | XYNY`}
+    title={entry.data.title}
     ogImage={entry.data.image?.src ?? "/og_image.png"}
     description={entry.data.excerpt + " | xyny's writings"}
 >
