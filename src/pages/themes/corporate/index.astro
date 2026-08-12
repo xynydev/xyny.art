@@ -4,15 +4,15 @@ import Menu from '@components/corporate/Menu.svelte'
 import StabbingNotice from '@components/corporate/StabbingNotice.svelte'
 
 
-import { getEntry, getCollection } from 'astro:content';
+import { getEntry, getCollection, render } from 'astro:content';
 
 const about = await getEntry('about', 'about');
-const { Content: AboutContent } = await about.render();
+const { Content: AboutContent } = await render(about)
 
 const portfolio = await getCollection('portfolio');
 
 const linkEntry = await getEntry('links', 'links');
-const links = linkEntry.data.links.filter((link) => link.name != "xyny.art");
+const links = linkEntry.data.filter((link) => link.name != "xyny.art");
 
 import { fetchPixelfedFeed } from 'src/util/fetchPixelfedFeed';
 const pixelfedFeed = await fetchPixelfedFeed();
@@ -48,7 +48,7 @@ import heroImage from "src/content/portfolio/memoryfault/motionatfrontdoor.png"
             <h2 class="text-5xl font-bold text-rose-600 mb-8">Our Portfolio</h2>
             <div class="flex flex-row flex-wrap gap-4">
                 {portfolio.map((p) =>
-                    <a class="bg-gray-100 p-6 sm:max-w-1/2 lg:max-w-1/3 min-w-16rem w-full flex flex-col gap-4 group hover:shadow-xl shadow-md transition" href={`/portfolio/${p.slug}`}>
+                    <a class="bg-gray-100 p-6 sm:max-w-1/2 lg:max-w-1/3 min-w-16rem w-full flex flex-col gap-4 group hover:shadow-xl shadow-md transition" href={`/portfolio/${p.id}`}>
                         <h3 class="text-xl group-hover:underline">
                             {p.data.title}
                         </h3>

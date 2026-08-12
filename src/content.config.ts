@@ -1,7 +1,10 @@
-import { defineCollection, z } from "astro:content";
+import { defineCollection } from "astro:content";
+import { z } from "astro/zod"
+import { glob, file } from 'astro/loaders';
+
 export const collections = {
   portfolio: defineCollection({
-    type: "content",
+    loader: glob({ pattern: '**/[^_]*.{md,mdx}', base: "./src/content/portfolio" }),
     schema: ({ image }) =>
       z.object({
         title: z.string(),
@@ -23,28 +26,25 @@ export const collections = {
       }),
   }),
   about: defineCollection({
-    type: "content",
+    loader: glob({ pattern: '**/[^_]*.{md,mdx}', base: "./src/content/about" }),
     schema: () =>
       z.object({
         shortbio: z.string(),
         subtexts: z.array(z.string()),
-      }),
+    }),
   }),
   links: defineCollection({
-    type: "data",
-    schema: () =>
-      z.object({
-        links: z.array(
-          z.object({
-            name: z.string(),
-            url: z.string(),
-            category: z.enum(["contact", "consume", "chronicle", "code"]),
-          }),
-        ),
-      }),
+    loader: glob({ pattern: '**/[^_]*.yml', base: "./src/content/links" }),
+    schema: () => z.array(
+        z.object({
+          name: z.string(),
+          url: z.string(),
+          category: z.enum(["contact", "consume", "chronicle", "code"]).optional(),
+        }),
+      ),
   }),
   blog: defineCollection({
-    type: "content",
+    loader: glob({ pattern: '**/[^_]*.{md,mdx}', base: "./src/content/blog" }),
     schema: ({ image }) =>
       z.object({
         title: z.string(),

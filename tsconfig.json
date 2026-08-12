@@ -3,10 +3,21 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "@components/*": ["src/components/*"],
-      "@layouts/*": ["src/layouts/*"],
-      "@assets/*": ["src/assets/*"],
+      "@components/*": [
+        "src/components/*"
+      ],
+      "@layouts/*": [
+        "src/layouts/*"
+      ],
+      "@assets/*": [
+        "src/assets/*"
+      ]
     },
-    "types": ["unplugin-icons/types/svelte"],
+    "types": [
+      "unplugin-icons/types/svelte"
+    ]
   },
+  "include": [
+    "./worker-configuration.d.ts"
+  ]
 }

@@ -17,7 +17,7 @@
     <nav class="w-full bg-gray-400 fixed top-24 left-0 z-1000">
         <div class="w-full h-full bg-white/40">
             <div
-                class="absolute left-[40%] flex flex-col text-2xl py-8 w-128 h-full bg-blue-900 text-white border border-white border-x-4 border-y-0"
+                class="absolute left-[40%] flex flex-col text-2xl py-8 w-lg h-full bg-blue-900 text-white border border-white border-x-4 border-y-0"
             >
                 <a
                     class="capitalize px-8 w-full hover:bg-rose-600 transition focus:bg-rose-600 relative"

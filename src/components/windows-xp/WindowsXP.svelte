@@ -50,28 +50,28 @@
 
 <!-- Desktop -->
 <button
-    class="text-sm flex flex-col justify-center items-center !bg-none !border-none aspect-square"
+    class="text-sm flex flex-col justify-center items-center bg-none! border-none! aspect-square"
     onclick={() => openWindow("about")}
 >
     <img src={aboutIcon.src} alt="" />
     <span>About</span>
 </button>
 <button
-    class="text-sm flex flex-col justify-center items-center !bg-none !border-none aspect-square"
+    class="text-sm flex flex-col justify-center items-center bg-none! border-none! aspect-square"
     onclick={() => openWindow("themes")}
 >
     <img src={themeIcon.src} alt="" />
     <span>Themes</span>
 </button>
 <button
-    class="text-sm flex flex-col justify-center items-center !bg-none !border-none aspect-square"
+    class="text-sm flex flex-col justify-center items-center bg-none! border-none! aspect-square"
     onclick={() => openWindow("links")}
 >
     <img src={linksIcon.src} alt="" />
     <span>Links</span>
 </button>
 <button
-    class="text-sm flex flex-col justify-center items-center !bg-none !border-none aspect-square"
+    class="text-sm flex flex-col justify-center items-center bg-none! border-none! aspect-square"
     onclick={() => openWindow("portfolio")}
 >
     <img src={portfolioIcon.src} alt="" />
@@ -178,13 +178,13 @@
                 {#each links as link}
                     <a href={link.url} class="text-black" target="_blank">
                         <button
-                            class="text-xs flex flex-col gap-1 justify-center items-center !bg-none !border-none aspect-square w-[5rem] h-[5rem]"
+                            class="text-xs flex flex-col gap-1 justify-center items-center bg-none! border-none! aspect-square w-20 h-20"
                         >
                             <img
                                 src="https://icon.horse/icon/{new URL(link.url)
                                     .hostname}"
                                 alt=""
-                                class="w-[3rem] h-[3rem]"
+                                class="w-12 h-12"
                             />
                             <span>{link.name}</span>
                         </button>
@@ -222,12 +222,12 @@
             >
                 {#each portfolio as p}
                     <a
-                        href="/portfolio/{p.slug}"
+                        href="/portfolio/{p.id}"
                         class="text-black"
                         target="_blank"
                     >
                         <button
-                            class="text-xs flex flex-col gap-1 justify-center items-center !bg-none !border-none aspect-square w-[5rem] h-[5rem]"
+                            class="text-xs flex flex-col gap-1 justify-center items-center bg-none! border-none! aspect-square w-20 h-20"
                         >
                             <img
                                 src={p.data.gallery[0].images[0].img.src}

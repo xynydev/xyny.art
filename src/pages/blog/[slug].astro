@@ -4,17 +4,17 @@ import Header from "@components/basic/Header.astro";
 import Footer from "@components/basic/Footer.astro";
 import { Image } from "astro:assets";
 
-import { getCollection } from "astro:content";
+import { getCollection, render } from "astro:content";
 
 export async function getStaticPaths() {
     const posts = await getCollection("blog");
     return posts.map((entry, idx) => ({
-        params: { slug: entry.slug },
+        params: { slug: entry.id },
         props: { entry },
     }));
 }
 const { entry } = Astro.props;
-const { Content } = await entry.render();
+const { Content } = await render(entry);
 ---
 
 <style is:global>

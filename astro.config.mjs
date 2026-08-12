@@ -4,13 +4,15 @@ import svelte from "@astrojs/svelte";
 import Icons from "unplugin-icons/vite";
 import tailwindcss from "@tailwindcss/vite";
 
+import { unified } from '@astrojs/markdown-remark';
 import rehypeSlug from "rehype-slug";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
+
+import cloudflare from "@astrojs/cloudflare";
 
 // https://astro.build/config
 export default defineConfig({
   integrations: [svelte()],
-
   site: "https://xyny.art",
 
   image: {
@@ -18,7 +20,15 @@ export default defineConfig({
     remotePatterns: [{ protocol: "https" }],
   },
 
+  compressHTML: true,
+
   vite: {
+    build: {
+      cssMinify: "esbuild",
+    },
+    css: {
+      transformer: "postcss"
+    },
     plugins: [
       tailwindcss(),
       Icons({
@@ -28,6 +38,7 @@ export default defineConfig({
   },
 
   markdown: {
+    processor: unified(),
     rehypePlugins: [
       rehypeSlug,
       [
@@ -41,4 +52,8 @@ export default defineConfig({
       ],
     ],
   },
+
+  adapter: cloudflare({
+    prerenderEnvironment: "node"
+  }),
 });

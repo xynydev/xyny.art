@@ -3,17 +3,17 @@ import "xp.css/dist/XP.css";
 
 import Layout from "@layouts/Layout.astro";
 
-import { getEntry, getCollection } from 'astro:content';
+import { getEntry, getCollection, render } from "astro:content";
 
-const about = await getEntry('about', 'about');
-const { Content: AboutContent } = await about.render();
+const about = await getEntry("about", "about");
+const { Content: AboutContent } = await render(about);
 
-const portfolio = await getCollection('portfolio');
+const portfolio = await getCollection("portfolio");
 
-const linkEntry = await getEntry('links', 'links');
-const links = linkEntry.data.links;
+const linkEntry = await getEntry("links", "links");
+const links = linkEntry.data;
 
-import { fetchPixelfedFeed } from 'src/util/fetchPixelfedFeed';
+import { fetchPixelfedFeed } from "src/util/fetchPixelfedFeed";
 const pixelfedFeed = await fetchPixelfedFeed();
 
 import background from "src/content/portfolio/memoryfault/bliss.png";
@@ -27,13 +27,20 @@ import WindowsXP from "@components/windows-xp/WindowsXP.svelte";
 
 <Layout title="home & portfolio">
     <main
-        class="w-screen h-screen bg-cover bg-center font-ms grid auto-cols-[4rem] auto-rows-[4rem] p-4 gap-4"
+        class="w-screen h-screen bg-cover bg-center font-ms grid auto-cols-16 auto-rows-16 p-4 gap-4"
         style={`background-image: url(${background.src})`}
     >
-
-        <WindowsXP client:load {links} {portfolio} {aboutIcon} {themeIcon} {linksIcon} {portfolioIcon}>
+        <WindowsXP
+            client:load
+            {links}
+            {portfolio}
+            {aboutIcon}
+            {themeIcon}
+            {linksIcon}
+            {portfolioIcon}
+        >
             <Fragment slot="about">
-                <AboutContent/>
+                <AboutContent />
             </Fragment>
         </WindowsXP>
     </main>
