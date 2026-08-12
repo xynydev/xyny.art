@@ -10,9 +10,11 @@ import rehypeAutolinkHeadings from "rehype-autolink-headings";
 
 import cloudflare from "@astrojs/cloudflare";
 
+import sitemap from "@astrojs/sitemap";
+
 // https://astro.build/config
 export default defineConfig({
-  integrations: [svelte()],
+  integrations: [svelte(), sitemap()],
   site: "https://xyny.art",
 
   image: {
