@@ -222,7 +222,7 @@
             >
                 {#each portfolio as p}
                     <a
-                        href="/portfolio/{p.slug}"
+                        href="/portfolio/{p.id}"
                         class="text-black"
                         target="_blank"
                     >

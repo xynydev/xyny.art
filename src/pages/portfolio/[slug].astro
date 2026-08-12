@@ -4,17 +4,17 @@ import Gallery from "@components/basic/Gallery.svelte";
 import Header from "@components/basic/Header.astro";
 import Footer from "@components/basic/Footer.astro";
 
-import { getCollection } from "astro:content";
+import { getCollection, render } from "astro:content";
 import { getImage } from "astro:assets";
 export async function getStaticPaths() {
     const portfolio = await getCollection("portfolio");
     return portfolio.map((entry, idx) => ({
-        params: { slug: entry.slug },
+        params: { slug: entry.id },
         props: { entry },
     }));
 }
 const { entry } = Astro.props;
-const { Content } = await entry.render();
+const { Content } = await render(entry);
 
 const gallery = [];
 for (let section of entry.data.gallery) {

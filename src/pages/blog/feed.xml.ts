@@ -1,7 +1,7 @@
 import rss, { type RSSFeedItem } from "@astrojs/rss";
 import { getCollection, render } from "astro:content";
 import { experimental_AstroContainer as AstroContainer } from "astro/container";
-import { getContainerRenderer as getMDXRenderer } from "@astrojs/mdx";
+import { getContainerRenderer as getMDXRenderer } from "@astrojs/mdx/container-renderer";
 import { transform, walk } from "ultrahtml";
 import { loadRenderers } from "astro:container";
 import sanitize from "ultrahtml/transformers/sanitize";
