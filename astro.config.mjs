@@ -8,6 +8,8 @@ import { unified } from '@astrojs/markdown-remark';
 import rehypeSlug from "rehype-slug";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
 
+import { esmExternalRequirePlugin } from 'rolldown/plugins';
+
 import cloudflare from "@astrojs/cloudflare";
 
 // https://astro.build/config
