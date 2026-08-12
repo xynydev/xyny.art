@@ -73,7 +73,7 @@ const posts = await getCollection("blog");
                         .sort((a, b) => (a.data.date > b.data.date ? -1 : 1))
                         .map((post) => (
                             <a href={`/blog/${post.slug}`} class="group">
-                                <li class="grid sm:grid-cols-[auto_1fr_auto_auto] gap-4 group cursor-pointer border-t-1 mx-4 p-4">
+                                <li class="grid sm:grid-cols-[auto_1fr_auto_auto] gap-4 group cursor-pointer border-t mx-4 p-4">
                                     <span class="font-mono">
                                         {post.data.date.toLocaleDateString(
                                             "sv",

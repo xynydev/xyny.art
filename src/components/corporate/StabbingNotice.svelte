@@ -215,7 +215,7 @@
 
 <dialog
     {open}
-    class="z-200 top-[6rem] left-1/2 -translate-x-1/2 bg-white fixed h-[75%] max-w-[95%] w-149 overflow-y-scroll font-corpo shadow-xl"
+    class="z-200 top-24 left-1/2 -translate-x-1/2 bg-white fixed h-[75%] max-w-[95%] w-149 overflow-y-scroll font-corpo shadow-xl"
 >
     <div class="prose p-8">
         <h2 class="mt-0">We Value Your Bodily Integrity</h2>
@@ -300,7 +300,7 @@
 
 <dialog
     open={preferencesOpen}
-    class="z-250 top-[6rem] left-1/2 -translate-x-1/2 bg-white fixed h-[75%] max-w-[95%] w-149 overflow-y-scroll font-corpo shadow-xl"
+    class="z-250 top-24 left-1/2 -translate-x-1/2 bg-white fixed h-[75%] max-w-[95%] w-149 overflow-y-scroll font-corpo shadow-xl"
 >
     <div class="prose p-8 relative">
         <h2 class="mt-0">Manage Your Stabbing Preferences</h2>
@@ -335,7 +335,7 @@
                             checked
                         />
                         <div
-                            class="relative w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"
+                            class="relative w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:inset-s-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"
                         ></div>
                         <span class="ms-3">{partner}</span>
                     </label>
