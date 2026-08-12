@@ -7,16 +7,19 @@ import tailwindcss from "@tailwindcss/vite";
 import rehypeSlug from "rehype-slug";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
 
+import cloudflare from "@astrojs/cloudflare";
+
 // https://astro.build/config
 export default defineConfig({
   integrations: [svelte()],
-
   site: "https://xyny.art",
 
   image: {
     domains: ["s3.metapixl.com"],
     remotePatterns: [{ protocol: "https" }],
   },
+
+  compressHTML: true,
 
   vite: {
     plugins: [
@@ -41,4 +44,6 @@ export default defineConfig({
       ],
     ],
   },
+
+  adapter: cloudflare(),
 });
