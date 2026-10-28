@@ -17,6 +17,7 @@ export default defineConfig({
                 sans: "Outfit",
                 mono: "Azeret Mono",
                 corpo: "Supreme",
+                serif: "Zodiak"
             },
         }),
         presetTypography(),
