@@ -17,6 +17,7 @@ subtexts:
   - "reuploading..."
   - "reticulating final splines..."
   - "let me know if you can hear me"
+  - "Joku sano et liiman haistelu muka olevinaan liiman haistelu tekis vahinkoa aivoille kun haistelet liimaa aivoille kun haistelet sitä :Dd"
   - "change the world"
   - "my final message"
   - "goodbye!"
