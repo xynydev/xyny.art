@@ -33,6 +33,13 @@ export const collections = {
         subtexts: z.array(z.string()),
     }),
   }),
+  cv: defineCollection({
+    loader: glob({ pattern: '**/[^_]*.{md,mdx}', base: "./src/content/cv" }),
+    schema: () =>
+      z.object({
+        description: z.string(),
+    }),
+  }),
   links: defineCollection({
     loader: glob({ pattern: '**/[^_]*.yml', base: "./src/content/links" }),
     schema: () => z.array(
